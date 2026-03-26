@@ -15,6 +15,7 @@ type SelectProps = {
   onChange?: (value: string) => void;
   disabled?: boolean;
   id?: string;
+  label?: string;
 };
 
 export default function Select({
@@ -25,6 +26,7 @@ export default function Select({
   onChange,
   disabled,
   id: idProp,
+  label,
 }: SelectProps) {
   const generatedId = useId();
   const id = idProp ?? generatedId;
@@ -32,6 +34,8 @@ export default function Select({
   const hasValue = value !== undefined ? value !== '' : defaultValue !== undefined && defaultValue !== '';
 
   return (
+    <div className={styles.selectWrapper}>
+      {label && <label className={styles.selectLabel} htmlFor={id}>{label}</label>}
     <div className={`${styles.select} ${!hasValue ? styles['select--placeholder'] : ''}`}>
       <select
         id={id}
@@ -55,6 +59,7 @@ export default function Select({
       <span className={styles.select__icon} aria-hidden>
         <ChevronDownIcon size={16} color="currentColor" />
       </span>
+    </div>
     </div>
   );
 }

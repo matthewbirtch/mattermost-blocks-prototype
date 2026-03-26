@@ -1,3 +1,18 @@
+.selectWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.selectLabel {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: var(--center-channel-color);
+}
+
 .select {
   position: relative;
   display: flex;

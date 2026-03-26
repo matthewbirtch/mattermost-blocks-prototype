@@ -36,6 +36,12 @@ import TimelineItem from '../components/TimelineItem/TimelineItem';
 import SequenceItem from '../components/SequenceItem/SequenceItem';
 import UserList from '../components/UserList/UserList';
 import ActionBar from '../components/ActionBar/ActionBar';
+import TextInput from '../components/TextInput/TextInput';
+import Select from '../components/Select/Select';
+import Radio from '../components/Radio/Radio';
+import Checkbox from '../components/Checkbox/Checkbox';
+import Switch from '../components/Switch/Switch';
+import Divider from '../components/Divider/Divider';
 import BackButton from '../nav/BackButton';
 import styles from './FramesPage.module.scss';
 
@@ -733,6 +739,135 @@ export default function PostsPage() {
             },
           ]}
         />
+      </Post>
+
+      {/* 21 — PagerDuty: Manually trigger incident */}
+      <Post
+        avatarSrc={avatarPagerduty}
+        avatarAlt="PagerDuty"
+        username="PagerDuty"
+        timestamp="9:12 AM"
+        isBot={true}
+      >
+        <MessageAttachment title="Trigger a manual incident">
+          <TextInput label="Incident title" placeholder="Brief description of the issue" />
+          <Select
+            label="Affected service"
+            placeholder="Select a service"
+            options={[
+              { value: 'api-gateway', label: 'API Gateway' },
+              { value: 'payments-service', label: 'Payments Service' },
+              { value: 'auth-service', label: 'Auth Service' },
+              { value: 'data-pipeline', label: 'Data Pipeline' },
+            ]}
+          />
+          <div>
+            <p style={{ fontSize: 12, fontWeight: 600, color: 'var(--center-channel-color)', marginBottom: 8 }}>Urgency</p>
+            <div style={{ display: 'flex', gap: 16 }}>
+              <Radio name="incident-urgency" defaultChecked>High</Radio>
+              <Radio name="incident-urgency">Low</Radio>
+            </div>
+          </div>
+          <Divider />
+          <ActionBar actions={[
+            { label: 'Trigger incident', variant: 'danger' },
+            { label: 'Cancel', variant: 'secondary' },
+          ]} />
+        </MessageAttachment>
+      </Post>
+
+      {/* 22 — Jira: Create issue */}
+      <Post
+        avatarSrc={avatarJira}
+        avatarAlt="Jira"
+        username="Jira"
+        timestamp="11:30 AM"
+        isBot={true}
+      >
+        <MessageAttachment title="Create a Jira issue">
+          <Select
+            label="Project"
+            placeholder="Select a project"
+            options={[
+              { value: 'platform', label: 'Platform Engineering' },
+              { value: 'design-system', label: 'Design System' },
+              { value: 'security', label: 'Security' },
+              { value: 'growth', label: 'Growth' },
+            ]}
+          />
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+            <Select
+              label="Issue type"
+              placeholder="Select type"
+              options={[
+                { value: 'bug', label: 'Bug' },
+                { value: 'story', label: 'Story' },
+                { value: 'task', label: 'Task' },
+                { value: 'epic', label: 'Epic' },
+              ]}
+            />
+            <Select
+              label="Priority"
+              placeholder="Select priority"
+              options={[
+                { value: 'highest', label: 'Highest' },
+                { value: 'high', label: 'High' },
+                { value: 'medium', label: 'Medium' },
+                { value: 'low', label: 'Low' },
+              ]}
+            />
+          </div>
+          <TextInput label="Summary" placeholder="Short summary of the issue" />
+          <Select
+            label="Assignee"
+            placeholder="Unassigned"
+            options={[
+              { value: 'emma', label: 'Emma Novak' },
+              { value: 'ethan', label: 'Ethan Brooks' },
+              { value: 'danielle', label: 'Danielle Okoro' },
+              { value: 'lukas', label: 'Lukas Meyer' },
+            ]}
+          />
+          <Checkbox>Notify assignee by email</Checkbox>
+          <Divider />
+          <ActionBar actions={[
+            { label: 'Create issue', variant: 'primary' },
+            { label: 'Cancel', variant: 'secondary' },
+          ]} />
+        </MessageAttachment>
+      </Post>
+
+      {/* 23 — Workday: Submit expense */}
+      <Post
+        avatarSrc={avatarWorkday}
+        avatarAlt="Workday"
+        username="Workday"
+        timestamp="3:45 PM"
+        isBot={true}
+      >
+        <MessageAttachment title="Submit an expense">
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+            <TextInput label="Merchant" placeholder="e.g. Marriott San Francisco" />
+            <TextInput label="Amount (USD)" placeholder="0.00" />
+          </div>
+          <Select
+            label="Category"
+            placeholder="Select a category"
+            options={[
+              { value: 'travel', label: 'Travel' },
+              { value: 'meals', label: 'Meals & Entertainment' },
+              { value: 'software', label: 'Software & Subscriptions' },
+              { value: 'office', label: 'Office Supplies' },
+              { value: 'other', label: 'Other' },
+            ]}
+          />
+          <TextInput label="Notes" placeholder="Optional description or context" />
+          <Divider />
+          <ActionBar actions={[
+            { label: 'Submit expense', variant: 'primary' },
+            { label: 'Save draft', variant: 'secondary' },
+          ]} />
+        </MessageAttachment>
       </Post>
 
     </div>

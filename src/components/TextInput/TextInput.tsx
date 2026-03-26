@@ -11,7 +11,7 @@ export interface TextInputProps
   className?: string
   /** When true, shows invalid/error styling. */
   invalid?: boolean
-  /** Floating label content. When provided, label floats on focus or when value is non-empty. */
+  /** Label rendered above the input. */
   label?: ReactNode
   /** Leading icon (e.g. <Icon glyph={<SearchIcon size={16} />} size="16" />). */
   leadingIcon?: ReactNode
@@ -25,13 +25,6 @@ export interface TextInputProps
   trailingIcon?: ReactNode
 }
 
-/**
- * Text Input component with optional floating label, leading/trailing icons, and character counter.
- * Matches Figma Text Input v2.0.1 (Border=On only). Uses theme variables only.
- * When label is provided, the label floats above the border on focus or when the field has a value.
- *
- * @see https://compass.mattermost.com (Text Input)
- */
 const TextInput = forwardRef<HTMLInputElement, TextInputProps>(function TextInput(
   {
     className = '',
@@ -46,8 +39,6 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(function TextInpu
     value: valueProp,
     defaultValue,
     placeholder,
-    onFocus,
-    onBlur,
     onChange,
     disabled,
     readOnly,
@@ -59,29 +50,11 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(function TextInpu
   const id = idProp ?? generatedId
 
   const isControlled = valueProp !== undefined
-  const [uncontrolledValue, setUncontrolledValue] = useState(
-    defaultValue ?? '',
-  )
-  const value = isControlled ? (valueProp as string) : uncontrolledValue
-  const hasValue = value != null && value !== ''
+  const [uncontrolledValue, setUncontrolledValue] = useState(defaultValue ?? '')
+  const currentLength = typeof (isControlled ? valueProp : uncontrolledValue) === 'string'
+    ? (isControlled ? valueProp as string : uncontrolledValue).length
+    : 0
 
-  const [isFocused, setIsFocused] = useState(false)
-  const labelFloated = isFocused || hasValue
-
-  const handleFocus = useCallback(
-    (e: React.FocusEvent<HTMLInputElement>) => {
-      setIsFocused(true)
-      onFocus?.(e)
-    },
-    [onFocus],
-  )
-  const handleBlur = useCallback(
-    (e: React.FocusEvent<HTMLInputElement>) => {
-      setIsFocused(false)
-      onBlur?.(e)
-    },
-    [onBlur],
-  )
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       if (!isControlled) setUncontrolledValue(e.target.value)
@@ -92,7 +65,6 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(function TextInpu
 
   const sizeClass = styles[`textInput--size-${toKebab(size)}`]
   const invalidClass = invalid ? styles['textInput--invalid'] : ''
-  const labelFloatedClass = label != null && labelFloated ? styles['textInput--label-floated'] : ''
   const hasLeadingClass = leadingIcon != null ? styles['textInput--has-leading-icon'] : ''
   const hasTrailingClass = trailingIcon != null ? styles['textInput--has-trailing-icon'] : ''
 
@@ -100,7 +72,6 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(function TextInpu
     styles.textInput,
     sizeClass,
     invalidClass,
-    labelFloatedClass,
     hasLeadingClass,
     hasTrailingClass,
     className,
@@ -108,17 +79,16 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(function TextInpu
     .filter(Boolean)
     .join(' ')
 
-  const currentLength = typeof value === 'string' ? value.length : 0
   const counterId = showCharacterCount && maxLength != null ? `${id}-counter` : undefined
 
   return (
     <div className={rootClass}>
+      {label != null && (
+        <label className={styles.textInput__label} htmlFor={id}>
+          {label}
+        </label>
+      )}
       <div className={styles.textInput__wrapper}>
-        {label != null && (
-          <label className={styles.textInput__label} htmlFor={id}>
-            {label}
-          </label>
-        )}
         <div className={styles.textInput__inner}>
           {leadingIcon != null && (
             <span className={styles.textInput__leadingIcon}>
@@ -137,8 +107,6 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(function TextInpu
             readOnly={readOnly}
             aria-invalid={invalid ? true : undefined}
             aria-describedby={counterId}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
             onChange={handleChange}
             {...rest}
           />
