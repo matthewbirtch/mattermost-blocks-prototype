@@ -5,7 +5,7 @@ import styles from './ActionBar.module.scss';
 
 type Action = {
   label: string;
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'success' | 'danger';
   onClick?: () => void;
   trailingIcon?: React.ReactNode;
 };

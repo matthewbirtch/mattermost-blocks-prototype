@@ -22,6 +22,10 @@
   display: flex;
   align-items: center;
   background-color: var(--center-channel-bg);
+  
+  svg {
+    fill: rgba(var(--center-channel-color-rgb), 0.64);
+  }
 }
 
 .content {

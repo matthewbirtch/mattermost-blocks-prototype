@@ -1,0 +1,17 @@
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: rgba(var(--center-channel-color-rgb), 0.64);
+  text-decoration: none;
+  transition: color 150ms ease;
+  margin-bottom: -16px;
+
+  &:hover {
+    color: var(--center-channel-color);
+  }
+}

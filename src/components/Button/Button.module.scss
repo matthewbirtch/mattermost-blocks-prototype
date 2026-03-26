@@ -42,3 +42,29 @@
     background-color: rgba(var(--button-bg-rgb), 0.12);
   }
 }
+
+.success {
+  background-color: var(--online-indicator);
+  color: var(--button-color);
+
+  &:hover {
+    background-color: rgba(var(--online-indicator-rgb), 0.88);
+  }
+
+  &:focus-visible {
+    outline-color: var(--online-indicator);
+  }
+}
+
+.danger {
+  background-color: var(--error-text);
+  color: var(--button-color);
+
+  &:hover {
+    background-color: rgba(var(--error-text-rgb), 0.88);
+  }
+
+  &:focus-visible {
+    outline-color: var(--error-text);
+  }
+}

@@ -1,10 +1,10 @@
 .page {
   max-width: 800px;
-  margin: 0 auto;
-  padding: 40px 24px 80px;
+  margin: 64px auto;
+  padding: 0 24px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 24px;
 }
 
 .heading {
@@ -13,6 +13,7 @@
   font-weight: 600;
   line-height: 32px;
   color: var(--center-channel-color);
+  margin-bottom: 0;
 }
 
 .section {

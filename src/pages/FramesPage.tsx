@@ -15,6 +15,7 @@ import MessageAttachment from '../components/MessageAttachment/MessageAttachment
 import CollapsibleSection from '../components/CollapsibleSection/CollapsibleSection';
 import TimelineItem from '../components/TimelineItem/TimelineItem';
 import SequenceItem from '../components/SequenceItem/SequenceItem';
+import BackButton from '../nav/BackButton';
 import styles from './FramesPage.module.scss';
 
 const timelineEvents = [
@@ -44,6 +45,8 @@ const approvalChain = [
 export default function FramesPage() {
   return (
     <div className={styles.page}>
+      <BackButton />
+      <h1 className={styles.heading}>Post Samples</h1>
 
       {/* Frame 1 — PagerDuty incident */}
       <Post
@@ -142,11 +145,8 @@ export default function FramesPage() {
             { value: 'Professional', label: 'License' },
             { value: '2026-03-17', label: 'Close date' },
           ]}
-          labeledText={{
-            label: 'Use case',
-            text: 'Resilient/Out-of-Band Communication — used by Cyber Security Team for mission critical comms. Business objective: communicate securely.',
-          }}
           fields={[
+            { label: 'Use case', value: 'Resilient/Out-of-Band Communication — used by Cyber Security Team for mission critical comms. Business objective: communicate securely.', colSpan: 4 },
             { label: 'Sales rep', value: 'Dana Mitchell' },
             { label: 'Customer engineer', value: 'Raj Patel' },
             { label: 'Account manager', value: 'Arnold Williamson' },

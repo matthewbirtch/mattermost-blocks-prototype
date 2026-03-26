@@ -19,11 +19,6 @@ type KeyValueField = {
   muted?: boolean;
 };
 
-type LabeledText = {
-  label: string;
-  text: string;
-};
-
 type MetricItem = {
   value: string;
   label: string;
@@ -31,7 +26,7 @@ type MetricItem = {
 
 type Action = {
   label: string;
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'success' | 'danger';
   onClick?: () => void;
   trailingIcon?: React.ReactNode;
 };
@@ -41,7 +36,6 @@ type MessageAttachmentProps = {
   title?: string;
   description?: string;
   metrics?: MetricItem[];
-  labeledText?: LabeledText;
   fields?: KeyValueField[];
   fieldColumns?: number;
   children?: React.ReactNode;
@@ -53,7 +47,6 @@ export default function MessageAttachment({
   title,
   description,
   metrics,
-  labeledText,
   fields,
   fieldColumns = 3,
   children,
@@ -74,13 +67,6 @@ export default function MessageAttachment({
             {metrics.map((metric) => (
               <Metric key={metric.label} value={metric.value} label={metric.label} />
             ))}
-          </div>
-        )}
-
-        {labeledText && (
-          <div className={styles.labeledText}>
-            <span className={styles.labeledTextLabel}>{labeledText.label}</span>
-            <p className={styles.labeledTextBody}>{labeledText.text}</p>
           </div>
         )}
 

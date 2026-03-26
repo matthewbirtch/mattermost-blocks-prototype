@@ -21,6 +21,17 @@ import EntityHeader from '../components/EntityHeader/EntityHeader';
 import userLeonardRiley from '../assets/user-leonard-riley.png';
 import userAikoTan from '../assets/user-aiko-tan.png';
 import userArjunPatel from '../assets/user-arjun-patel.png';
+import userDanielleOkoro from '../assets/user-danielle-okoro.png';
+import userDariusCole from '../assets/user-darius-cole.png';
+import userDavidLiang from '../assets/user-david-liang.png';
+import userEmmaNovak from '../assets/user-emma-novak.png';
+import userEthanBrooks from '../assets/user-ethan-brooks.png';
+import userIsabellaCruz from '../assets/user-isabella-cruz.png';
+import userLeilaHaddad from '../assets/user-leila-haddad.png';
+import userLukasMeyer from '../assets/user-lukas-meyer.png';
+import userMarcoRinaldi from '../assets/user-marco-rinaldi.png';
+import userSofiaBauer from '../assets/user-sofia-bauer.png';
+import BackButton from '../nav/BackButton';
 import styles from './ComponentsPage.module.scss';
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
@@ -45,11 +56,22 @@ const demoUsers = [
   { avatarSrc: userLeonardRiley, name: 'Leonard Riley', role: 'Director, Security Engineering' },
   { avatarSrc: userAikoTan, name: 'Aiko Tan', role: 'Senior Manager' },
   { avatarSrc: userArjunPatel, name: 'Arjun Patel', role: 'Platform Administrator' },
+  { avatarSrc: userDanielleOkoro, name: 'Danielle Okoro', role: 'Software Engineer' },
+  { avatarSrc: userDariusCole, name: 'Darius Cole', role: 'Product Designer' },
+  { avatarSrc: userDavidLiang, name: 'David Liang', role: 'Product Manager' },
+  { avatarSrc: userEmmaNovak, name: 'Emma Novak', role: 'Frontend Engineer' },
+  { avatarSrc: userEthanBrooks, name: 'Ethan Brooks', role: 'Backend Engineer' },
+  { avatarSrc: userIsabellaCruz, name: 'Isabella Cruz', role: 'UX Researcher' },
+  { avatarSrc: userLeilaHaddad, name: 'Leila Haddad', role: 'Engineering Manager' },
+  { avatarSrc: userLukasMeyer, name: 'Lukas Meyer', role: 'DevOps Engineer' },
+  { avatarSrc: userMarcoRinaldi, name: 'Marco Rinaldi', role: 'Security Analyst' },
+  { avatarSrc: userSofiaBauer, name: 'Sofia Bauer', role: 'Sales Engineer' },
 ];
 
 export default function ComponentsPage() {
   return (
     <div className={styles.page}>
+      <BackButton />
       <h1 className={styles.heading}>Components</h1>
 
       {/* Button */}
@@ -65,6 +87,14 @@ export default function ComponentsPage() {
           <Button variant="secondary" trailingIcon={<OpenInNewIcon size={16} color="currentColor" />}>
             View details
           </Button>
+        </Row>
+        <Row label="Success">
+          <Button variant="success">Approve</Button>
+          <Button variant="success">Deploy</Button>
+        </Row>
+        <Row label="Danger">
+          <Button variant="danger">Deny</Button>
+          <Button variant="danger">Delete</Button>
         </Row>
       </Section>
 

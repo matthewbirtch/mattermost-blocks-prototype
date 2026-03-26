@@ -1,8 +1,17 @@
 .page {
+  max-width: 800px;
+  margin: 64px auto;
+  padding: 0 24px;
   display: flex;
   flex-direction: column;
-  gap: 1px;
-  background-color: rgba(var(--center-channel-color-rgb), 0.08);
-  max-width: 800px;
-  margin: 0 auto;
+  gap: 24px;
+}
+
+.heading {
+  font-family: 'Metropolis', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  color: var(--center-channel-color);
+  margin-bottom: 8px;
 }
