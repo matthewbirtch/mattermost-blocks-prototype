@@ -51,9 +51,8 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(function TextInpu
 
   const isControlled = valueProp !== undefined
   const [uncontrolledValue, setUncontrolledValue] = useState(defaultValue ?? '')
-  const currentLength = typeof (isControlled ? valueProp : uncontrolledValue) === 'string'
-    ? (isControlled ? valueProp as string : uncontrolledValue).length
-    : 0
+  const currentValue = isControlled ? (valueProp as string) : uncontrolledValue
+  const currentLength = typeof currentValue === 'string' ? currentValue.length : 0
 
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {

@@ -14,7 +14,6 @@ import SequenceItem from '../components/SequenceItem/SequenceItem';
 import TimelineItem from '../components/TimelineItem/TimelineItem';
 import UserList from '../components/UserList/UserList';
 import Divider from '../components/Divider/Divider';
-import MessageAttachment from '../components/MessageAttachment/MessageAttachment';
 import EntityHeader from '../components/EntityHeader/EntityHeader';
 import userLeonardRiley from '../assets/user-leonard-riley.png';
 import userAikoTan from '../assets/user-aiko-tan.png';
