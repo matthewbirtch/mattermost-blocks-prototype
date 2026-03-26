@@ -4,3 +4,14 @@
   gap: 8px;
   flex-wrap: wrap;
 }
+
+.actionBarSelect {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.actionBarSelectInput {
+  flex: 1 0 0;
+  min-width: 0;
+}

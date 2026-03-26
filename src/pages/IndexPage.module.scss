@@ -1,0 +1,53 @@
+.page {
+  max-width: 800px;
+  margin: 64px auto;
+  padding: 0 24px;
+}
+
+.heading {
+  font-family: 'Metropolis', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  color: var(--center-channel-color);
+  margin-bottom: 32px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 20px;
+  border: 1px solid rgba(var(--center-channel-color-rgb), 0.12);
+  border-radius: 4px;
+  background-color: var(--center-channel-bg);
+  text-decoration: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    border-color: rgba(var(--center-channel-color-rgb), 0.32);
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.08);
+  }
+}
+
+.cardLabel {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--link-color);
+}
+
+.cardDescription {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: rgba(var(--center-channel-color-rgb), 0.75);
+}

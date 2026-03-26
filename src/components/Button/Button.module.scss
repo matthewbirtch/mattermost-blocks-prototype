@@ -29,6 +29,11 @@
   }
 }
 
+.trailingIcon {
+  display: inline-flex;
+  align-items: center;
+}
+
 .secondary {
   background-color: rgba(var(--button-bg-rgb), 0.08);
   color: var(--link-color);

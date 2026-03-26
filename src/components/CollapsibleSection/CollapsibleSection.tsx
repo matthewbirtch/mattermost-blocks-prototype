@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import ChevronDownIcon from '@mattermost/compass-icons/components/chevron-down';
-import ChevronRightIcon from '@mattermost/compass-icons/components/chevron-right';
 import styles from './CollapsibleSection.module.scss';
 
 type CollapsibleSectionProps = {
   title: string;
-  eventCount?: number;
-  children: React.ReactNode;
+  badge?: string;
+  children?: React.ReactNode;
   defaultOpen?: boolean;
 };
 
 export default function CollapsibleSection({
   title,
-  eventCount,
+  badge,
   children,
   defaultOpen = true,
 }: CollapsibleSectionProps) {
@@ -27,20 +26,20 @@ export default function CollapsibleSection({
         aria-expanded={isOpen}
       >
         <div className={styles.headerLeft}>
-          <span className={styles.chevron}>
-            {isOpen ? (
-              <ChevronDownIcon size={12} color="rgba(var(--center-channel-color-rgb), 0.75)" />
-            ) : (
-              <ChevronRightIcon size={12} color="rgba(var(--center-channel-color-rgb), 0.75)" />
-            )}
+          <span className={`${styles.chevron} ${isOpen ? styles['chevron--open'] : ''}`}>
+            <ChevronDownIcon size={12} color="rgba(var(--center-channel-color-rgb), 0.75)" />
           </span>
           <span className={styles.title}>{title}</span>
         </div>
-        {eventCount !== undefined && (
-          <span className={styles.count}>{eventCount} events</span>
+        {badge !== undefined && (
+          <span className={styles.count}>{badge}</span>
         )}
       </button>
-      {isOpen && <div className={styles.body}>{children}</div>}
+      <div className={`${styles.bodyWrapper} ${isOpen ? styles['bodyWrapper--open'] : ''}`}>
+        <div className={styles.bodyInner}>
+          <div className={styles.body}>{children}</div>
+        </div>
+      </div>
     </div>
   );
 }

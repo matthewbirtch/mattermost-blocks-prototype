@@ -1,0 +1,8 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background-color: rgba(var(--center-channel-color-rgb), 0.08);
+  max-width: 800px;
+  margin: 0 auto;
+}

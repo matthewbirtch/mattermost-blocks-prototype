@@ -1,0 +1,23 @@
+import { Link } from 'react-router-dom';
+import styles from './IndexPage.module.scss';
+
+const pages = [
+  { path: '/frames', label: 'Frames', description: 'Interactive block prototypes' },
+  { path: '/components', label: 'Components', description: 'Primitive UI components used within posts' },
+];
+
+export default function IndexPage() {
+  return (
+    <div className={styles.page}>
+      <h1 className={styles.heading}>Mattermost Interactive Blocks</h1>
+      <nav className={styles.nav}>
+        {pages.map((page) => (
+          <Link key={page.path} to={page.path} className={styles.card}>
+            <span className={styles.cardLabel}>{page.label}</span>
+            <span className={styles.cardDescription}>{page.description}</span>
+          </Link>
+        ))}
+      </nav>
+    </div>
+  );
+}

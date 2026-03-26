@@ -20,4 +20,8 @@
   font-weight: 400;
   line-height: 20px;
   color: var(--center-channel-color);
+
+  &.muted {
+    color: rgba(var(--center-channel-color-rgb), 0.64);
+  }
 }

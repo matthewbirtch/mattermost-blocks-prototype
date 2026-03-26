@@ -1,0 +1,99 @@
+// ---------------------------------------------------------------------------
+// Block — Figma Status Badge v2.0.1
+// ---------------------------------------------------------------------------
+.status-badge {
+  position: relative;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  color: var(--center-channel-color);
+  box-sizing: border-box;
+  overflow: hidden;
+
+  // Element
+  &__glyph {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  // ---------------------------------------------------------------------------
+  // Size modifiers (Figma: XX-Small, X-Small, Small, Medium, Large)
+  // ---------------------------------------------------------------------------
+  &--size-xx-small {
+    width: 12px;
+    height: 12px;
+
+    .status-badge__glyph {
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  &--size-x-small {
+    width: 12px;
+    height: 12px;
+
+    .status-badge__glyph {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  &--size-small {
+    width: 16px;
+    height: 16px;
+
+    .status-badge__glyph {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &--size-medium {
+    width: 24px;
+    height: 24px;
+
+    .status-badge__glyph {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &--size-large {
+    width: 32px;
+    height: 32px;
+
+    .status-badge__glyph {
+      width: 36px;
+      height: 36px;
+      margin: -2px; /* center 36px icon in 32px container */
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // Status modifiers (Figma: Online, Away, Do Not Disturb, Offline)
+  // ---------------------------------------------------------------------------
+  &--status-online {
+    color: var(--online-indicator);
+    background-color: var(--center-channel-bg);
+  }
+
+  &--status-away {
+    color: var(--away-indicator);
+    background-color: var(--center-channel-bg);
+  }
+
+  &--status-do-not-disturb {
+    color: var(--dnd-indicator);
+    background-color: var(--center-channel-bg);
+  }
+
+  &--status-offline {
+    color: rgba(var(--center-channel-color-rgb), 0.32);
+    background-color: var(--center-channel-bg);
+  }
+}

@@ -1,0 +1,88 @@
+.outer {
+  padding-left: 8px;
+  padding-right: 12px;
+}
+
+.inner {
+  position: relative;
+  border-left: 1px solid rgba(var(--center-channel-color-rgb), 0.16);
+  padding-bottom: 16px;
+  padding-left: 20px;
+
+  &.last {
+    border-left-color: transparent;
+    padding-bottom: 0;
+  }
+}
+
+// The step badge — absolutely positioned on the border line
+.badge {
+  position: absolute;
+  left: -10px; // centers the 20px badge on the 1px border
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+}
+
+.completed {
+  background-color: var(--online-indicator);
+  border-color: var(--online-indicator);
+}
+
+.active {
+  background-color: var(--center-channel-bg);
+  border-color: var(--button-bg);
+}
+
+.pending {
+  background-color: var(--center-channel-bg);
+  border-color: rgba(var(--center-channel-color-rgb), 0.32);
+}
+
+.stepNumber {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: center;
+}
+
+.active .stepNumber {
+  color: var(--button-bg);
+}
+
+.pending .stepNumber {
+  color: rgba(var(--center-channel-color-rgb), 0.75);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--center-channel-color);
+}
+
+.strikethrough {
+  text-decoration: line-through;
+  text-decoration-skip-ink: none;
+}
+
+.detail {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: rgba(var(--center-channel-color-rgb), 0.75);
+}

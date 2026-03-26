@@ -10,11 +10,12 @@
 .inner {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   padding: 16px 19px;
   border-left: 3px solid var(--button-bg);
 }
 
+// Plain text title (no entity header)
 .title {
   font-family: 'Metropolis', sans-serif;
   font-size: 18px;
@@ -23,8 +24,46 @@
   color: var(--center-channel-color);
 }
 
+.description {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--center-channel-color);
+}
+
+.metrics {
+  display: flex;
+  gap: 8px;
+}
+
+// Labeled text section
+.labeledText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.labeledTextLabel {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.11px;
+  color: rgba(var(--center-channel-color-rgb), 0.75);
+  white-space: nowrap;
+}
+
+.labeledTextBody {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--center-channel-color);
+}
+
 .fields {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px 8px;
+  // column count is set via inline style
+  gap: 12px 8px;
 }

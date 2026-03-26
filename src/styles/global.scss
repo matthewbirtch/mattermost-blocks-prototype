@@ -3,7 +3,45 @@
 
 // Google Fonts
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Metropolis:wght@600&display=swap');
+
+// Metropolis — self-hosted via @fontsource
+@import '@fontsource/metropolis/600.css';
+
+// ---------------------------------------------------------------------------
+// Design tokens — spacing, radius, typography, elevation
+// These supplement the Mattermost CSS variables consumed by ported components.
+// Color primitives (--color-neutral-*) live in _colors.scss.
+// Theme-specific tokens (--button-bg-rgb) live in _themes.scss.
+// ---------------------------------------------------------------------------
+:root {
+  // Spacing
+  --spacing-xs: 6px;
+  --spacing-s: 8px;
+  --spacing-m: 12px;
+
+  // Border radius
+  --radius-xs: 2px;
+  --radius-s: 4px;
+  --radius-full: 9999px;
+
+  // Typography
+  --font-family-body: 'Open Sans', sans-serif;
+  --font-size-75: 11px;
+  --font-size-100: 13px;
+  --font-size-200: 16px;
+  --line-height-75: 16px;
+  --line-height-100: 20px;
+  --line-height-200: 24px;
+  --font-weight-semibold: 600;
+
+  // Icon sizes
+  --icon-size-12: 12px;
+  --icon-size-16: 16px;
+  --icon-size-20: 20px;
+
+  // Elevation
+  --elevation-1: 0 2px 3px rgba(0, 0, 0, 0.08);
+}
 
 *,
 *::before,
