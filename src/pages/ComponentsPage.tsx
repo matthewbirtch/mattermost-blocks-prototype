@@ -4,14 +4,12 @@ import Checkbox from '../components/Checkbox/Checkbox';
 import Radio from '../components/Radio/Radio';
 import Switch from '../components/Switch/Switch';
 import TextInput from '../components/TextInput/TextInput';
-import StatusBadge from '../components/StatusBadge/StatusBadge';
 import UserAvatar from '../components/UserAvatar/UserAvatar';
 import CollapsibleSection from '../components/CollapsibleSection/CollapsibleSection';
 import Metric from '../components/Metric/Metric';
 import ActionBar from '../components/ActionBar/ActionBar';
 import Select from '../components/Select/Select';
 import KeyValue from '../components/KeyValue/KeyValue';
-import LabelTag from '../components/LabelTag/LabelTag';
 import SequenceItem from '../components/SequenceItem/SequenceItem';
 import TimelineItem from '../components/TimelineItem/TimelineItem';
 import UserList from '../components/UserList/UserList';
@@ -177,23 +175,6 @@ export default function ComponentsPage() {
         </Row>
       </Section>
 
-      {/* Status Badge */}
-      <Section title="Status Badge">
-        <Row label="Statuses">
-          <StatusBadge status="Online" size="Medium" />
-          <StatusBadge status="Away" size="Medium" />
-          <StatusBadge status="Do Not Disturb" size="Medium" />
-          <StatusBadge status="Offline" size="Medium" />
-        </Row>
-        <Row label="Sizes">
-          <StatusBadge status="Online" size="XX-Small" />
-          <StatusBadge status="Online" size="X-Small" />
-          <StatusBadge status="Online" size="Small" />
-          <StatusBadge status="Online" size="Medium" />
-          <StatusBadge status="Online" size="Large" />
-        </Row>
-      </Section>
-
       {/* User Avatar */}
       <Section title="User Avatar">
         <Row label="Sizes">
@@ -207,14 +188,6 @@ export default function ComponentsPage() {
           <UserAvatar src={userLeonardRiley} alt="Leonard Riley" size="32" status />
           <UserAvatar src={userLeonardRiley} alt="Leonard Riley" size="40" status />
           <UserAvatar src={userLeonardRiley} alt="Leonard Riley" size="48" status />
-        </Row>
-      </Section>
-
-      {/* Label Tag */}
-      <Section title="Label Tag">
-        <Row label="Default">
-          <LabelTag label="Bot" />
-          <LabelTag label="App" />
         </Row>
       </Section>
 

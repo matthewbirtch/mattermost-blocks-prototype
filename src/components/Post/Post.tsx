@@ -1,5 +1,5 @@
 import React from 'react';
-import Avatar from '../Avatar/Avatar';
+import UserAvatar from '../UserAvatar/UserAvatar';
 import MessageHeader from '../MessageHeader/MessageHeader';
 import styles from './Post.module.scss';
 
@@ -24,7 +24,7 @@ export default function Post({
     <div className={styles.post}>
       <div className={styles.message}>
         <div className={styles.avatarCol}>
-          <Avatar src={avatarSrc} alt={avatarAlt} size={32} />
+          <UserAvatar src={avatarSrc} alt={avatarAlt} size="32" />
         </div>
         <div className={styles.content}>
           <MessageHeader username={username} timestamp={timestamp} isBot={isBot} />
