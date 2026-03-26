@@ -1,0 +1,23 @@
+import React from 'react';
+import styles from './Button.module.scss';
+
+type ButtonVariant = 'primary' | 'secondary';
+
+type ButtonProps = {
+  variant?: ButtonVariant;
+  onClick?: () => void;
+  children: React.ReactNode;
+  className?: string;
+};
+
+export default function Button({ variant = 'primary', onClick, children, className }: ButtonProps) {
+  return (
+    <button
+      className={`${styles.button} ${styles[variant]} ${className ?? ''}`}
+      onClick={onClick}
+      type="button"
+    >
+      {children}
+    </button>
+  );
+}

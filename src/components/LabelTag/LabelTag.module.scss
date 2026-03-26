@@ -1,0 +1,14 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 4px;
+  border-radius: 4px;
+  background-color: rgba(var(--center-channel-color-rgb), 0.08);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.1px;
+  color: var(--center-channel-color);
+  white-space: nowrap;
+}

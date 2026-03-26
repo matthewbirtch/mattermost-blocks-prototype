@@ -1,0 +1,30 @@
+.attachment {
+  background-color: var(--center-channel-bg);
+  border: 1px solid rgba(var(--center-channel-color-rgb), 0.12);
+  border-radius: 4px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  max-width: 700px;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 19px;
+  border-left: 3px solid var(--button-bg);
+}
+
+.title {
+  font-family: 'Metropolis', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--center-channel-color);
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px 8px;
+}

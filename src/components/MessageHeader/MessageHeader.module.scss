@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.username {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--center-channel-color);
+  white-space: nowrap;
+}
+
+.timestamp {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: rgba(var(--center-channel-color-rgb), 0.56);
+  white-space: nowrap;
+}

@@ -1,0 +1,75 @@
+// ============================================================
+// Mattermost Base Color Palette
+// These are the primitive color tokens referenced by theme variables.
+// ============================================================
+:root {
+  // Neutral
+  --color-neutral-0: #ffffff;
+  --color-neutral-0-rgb: 255, 255, 255;
+  --color-neutral-50: #f4f4f6;
+  --color-neutral-50-rgb: 244, 244, 246;
+  --color-neutral-150: #d4d9e2;
+  --color-neutral-150-rgb: 212, 217, 226;
+  --color-neutral-900: #3f4350;
+  --color-neutral-900-rgb: 63, 67, 80;
+  --color-neutral-1050: #1a1b1e;
+  --color-neutral-1050-rgb: 26, 27, 30;
+  --color-neutral-1100: #090a0b;
+  --color-neutral-1100-rgb: 9, 10, 11;
+
+  // Blue
+  --color-blue-300: #5d87f5;
+  --color-blue-300-rgb: 93, 135, 245;
+  --color-blue-500: #1c58d9;
+  --color-blue-500-rgb: 28, 88, 217;
+  --color-blue-600: #1347cc;
+  --color-blue-600-rgb: 19, 71, 204;
+  --color-blue-700: #0d3ba8;
+  --color-blue-700-rgb: 13, 59, 168;
+  --color-blue-800: #082f8a;
+  --color-blue-800-rgb: 8, 47, 138;
+
+  // Indigo
+  --color-indigo-400: #6a7dc1;
+  --color-indigo-400-rgb: 106, 125, 193;
+  --color-indigo-500: #1e325e;
+  --color-indigo-500-rgb: 30, 50, 94;
+  --color-indigo-600: #162040;
+  --color-indigo-600-rgb: 22, 32, 64;
+
+  // Red
+  --color-red-300: #f74343;
+  --color-red-300-rgb: 247, 67, 67;
+  --color-red-400: #d24b4e;
+  --color-red-400-rgb: 210, 75, 78;
+
+  // Green
+  --color-green-500: #3db887;
+  --color-green-500-rgb: 61, 184, 135;
+
+  // Yellow
+  --color-yellow-200: #fff2b3;
+  --color-yellow-200-rgb: 255, 242, 179;
+  --color-yellow-400: #ffcd02;
+  --color-yellow-400-rgb: 255, 205, 2;
+  --color-yellow-500: #e8a900;
+  --color-yellow-500-rgb: 232, 169, 0;
+  --color-yellow-600: #d8a800;
+  --color-yellow-600-rgb: 216, 168, 0;
+
+  // Teal
+  --color-teal-100: #d0f0f2;
+  --color-teal-100-rgb: 208, 240, 242;
+  --color-teal-200: #a8e7ea;
+  --color-teal-200-rgb: 168, 231, 234;
+  --color-teal-600: #3db887;
+  --color-teal-600-rgb: 61, 184, 135;
+  --color-teal-800: #1a6b5e;
+  --color-teal-800-rgb: 26, 107, 94;
+
+  // Cyan
+  --color-cyan-300: #67dfed;
+  --color-cyan-300-rgb: 103, 223, 237;
+  --color-cyan-500: #2bb2c0;
+  --color-cyan-500-rgb: 43, 178, 192;
+}
