@@ -1,2 +1,2 @@
 export { default } from './TextInput'
-export type { TextInputProps, TextInputSize } from './TextInput'
+export type { TextInputProps } from './TextInput'
