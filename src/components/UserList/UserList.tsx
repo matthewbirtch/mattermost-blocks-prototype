@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import MagnifyIcon from '@mattermost/compass-icons/components/magnify';
+import TextInput from '../TextInput/TextInput';
 import UserListItem from '../UserListItem/UserListItem';
 import styles from './UserList.module.scss';
 
@@ -27,16 +28,12 @@ export default function UserList({ users, filterPlaceholder = 'Filter users…' 
   return (
     <div className={styles.container}>
       <div className={styles.searchWrapper}>
-        <div className={styles.searchInput}>
-          <MagnifyIcon size={16} color="currentColor" className={styles.searchIcon} />
-          <input
-            className={styles.searchField}
-            type="text"
-            placeholder={filterPlaceholder}
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-        </div>
+        <TextInput
+          placeholder={filterPlaceholder}
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          leadingIcon={<MagnifyIcon size={16} color="currentColor" />}
+        />
       </div>
       <div className={styles.list}>
         {filtered.map((user) => (

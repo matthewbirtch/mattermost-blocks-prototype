@@ -26,8 +26,8 @@
 
   // Typography
   --font-family-body: 'Open Sans', sans-serif;
-  --font-size-75: 11px;
-  --font-size-100: 13px;
+  --font-size-75: 12px;
+  --font-size-100: 14px;
   --font-size-200: 16px;
   --line-height-75: 16px;
   --line-height-100: 20px;
@@ -41,6 +41,7 @@
 
   // Elevation
   --elevation-1: 0 2px 3px rgba(0, 0, 0, 0.08);
+  --elevation-2: 0 3px 4px rgba(0, 0, 0, 0.08);
 }
 
 *,
@@ -60,8 +61,8 @@ body,
 body {
   background-color: var(--center-channel-bg);
   color: var(--center-channel-color);
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-100);
   line-height: 20px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

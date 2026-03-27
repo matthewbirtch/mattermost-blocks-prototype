@@ -1,13 +1,11 @@
 .post {
-  background-color: var(--center-channel-bg);
-  padding: 8px;
 }
 
 .message {
   display: flex;
   gap: 12px;
   align-items: flex-start;
-  padding: 8px 24px;
+  padding: 8px 0;
 }
 
 .avatarCol {

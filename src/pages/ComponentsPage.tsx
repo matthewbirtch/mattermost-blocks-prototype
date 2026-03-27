@@ -161,11 +161,6 @@ export default function ComponentsPage() {
         <Row label="With label">
           <TextInput label="Email address" placeholder="you@example.com" />
         </Row>
-        <Row label="Sizes">
-          <TextInput size="Small" placeholder="Small" />
-          <TextInput size="Medium" placeholder="Medium" />
-          <TextInput size="Large" placeholder="Large" />
-        </Row>
         <Row label="Invalid">
           <TextInput label="Username" defaultValue="bad value" invalid />
         </Row>

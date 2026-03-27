@@ -1,9 +1,6 @@
 import type { InputHTMLAttributes, ReactNode, ChangeEvent } from 'react'
 import { forwardRef, useId, useState, useCallback } from 'react'
-import { toKebab } from '@/utils/string'
 import styles from './TextInput.module.scss'
-
-export type TextInputSize = 'Small' | 'Medium' | 'Large'
 
 export interface TextInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
@@ -19,8 +16,6 @@ export interface TextInputProps
   maxLength?: number
   /** When true with maxLength, shows "current / max" character count below input. */
   showCharacterCount?: boolean
-  /** Size variant. Figma: Small (32px), Medium (40px), Large (48px). Default: Medium. */
-  size?: TextInputSize
   /** Trailing icon. */
   trailingIcon?: ReactNode
 }
@@ -28,7 +23,6 @@ export interface TextInputProps
 const TextInput = forwardRef<HTMLInputElement, TextInputProps>(function TextInput(
   {
     className = '',
-    size = 'Medium',
     label,
     leadingIcon,
     trailingIcon,
@@ -62,14 +56,12 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(function TextInpu
     [isControlled, onChange],
   )
 
-  const sizeClass = styles[`textInput--size-${toKebab(size)}`]
   const invalidClass = invalid ? styles['textInput--invalid'] : ''
   const hasLeadingClass = leadingIcon != null ? styles['textInput--has-leading-icon'] : ''
   const hasTrailingClass = trailingIcon != null ? styles['textInput--has-trailing-icon'] : ''
 
   const rootClass = [
     styles.textInput,
-    sizeClass,
     invalidClass,
     hasLeadingClass,
     hasTrailingClass,
