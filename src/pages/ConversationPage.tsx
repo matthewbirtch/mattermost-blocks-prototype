@@ -138,6 +138,16 @@ export default function ConversationPage() {
     leila: false,
   });
   const bottomRef = useRef<HTMLDivElement>(null);
+  const dismissTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (dismissTimeoutRef.current !== null) {
+        clearTimeout(dismissTimeoutRef.current);
+        dismissTimeoutRef.current = null;
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const delay = AUTO_DELAYS[phase];
@@ -152,8 +162,12 @@ export default function ConversationPage() {
 
   // Fade the widget to opacity 0, then collapse its height, then advance.
   function dismissAndAdvance(fromPhase: number, toPhase: number) {
+    if (dismissTimeoutRef.current !== null) {
+      clearTimeout(dismissTimeoutRef.current);
+    }
     setDismissing(fromPhase);
-    setTimeout(() => {
+    dismissTimeoutRef.current = setTimeout(() => {
+      dismissTimeoutRef.current = null;
       setDismissing(null);
       setPhase(toPhase);
     }, DISMISS_MS);
@@ -176,6 +190,10 @@ export default function ConversationPage() {
     cadence !== null ? CADENCE_LABELS[cadence - 1] : 'Weekly';
 
   function restart() {
+    if (dismissTimeoutRef.current !== null) {
+      clearTimeout(dismissTimeoutRef.current);
+      dismissTimeoutRef.current = null;
+    }
     setPhase(0);
     setDismissing(null);
     setTool(null);

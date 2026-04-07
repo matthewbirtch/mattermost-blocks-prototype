@@ -3,12 +3,7 @@ import avatarPagerduty from '@/assets/avatar-pagerduty.png';
 import avatarAirbase from '@/assets/avatar-airbase.png';
 import avatarSalesforce from '@/assets/avatar-salesforce.png';
 import avatarEntra from '@/assets/avatar-entra.png';
-import userLeonardRiley from '@/assets/user-leonard-riley.png';
-import userAikoTan from '@/assets/user-aiko-tan.png';
-import userArjunPatel from '@/assets/user-arjun-patel.png';
-import userDanielleOkoro from '@/assets/user-danielle-okoro.png';
-import userDariusCole from '@/assets/user-darius-cole.png';
-import userDavidLiang from '@/assets/user-david-liang.png';
+import { entraPagerDutyUsers } from '@/fixtures/demoUsers';
 import {
   CollapsibleSection,
   MessageAttachment,
@@ -23,27 +18,6 @@ const timelineEvents = [
   { title: 'Incident triggered', detail: '11:04 AM PST • Datadog alert' },
   { title: 'Acknowledged by Alex Morgan', detail: '11:31 · via mobile' },
   { title: 'Escalation paused', detail: '11:31 · Next: L2 in 25 min' },
-];
-
-const entraPagerDutyUsers = [
-  {
-    avatarSrc: userLeonardRiley,
-    name: 'Leonard Riley',
-    role: 'Director, Security Engineering',
-  },
-  { avatarSrc: userAikoTan, name: 'Aiko Tan', role: 'Senior Manager' },
-  {
-    avatarSrc: userArjunPatel,
-    name: 'Arjun Patel',
-    role: 'Platform Administrator',
-  },
-  {
-    avatarSrc: userDanielleOkoro,
-    name: 'Danielle Okoro',
-    role: 'Software Engineer',
-  },
-  { avatarSrc: userDariusCole, name: 'Darius Cole', role: 'Product Designer' },
-  { avatarSrc: userDavidLiang, name: 'David Liang', role: 'Product Manager' },
 ];
 
 const approvalChain = [
@@ -77,10 +51,10 @@ export default function FramesPage() {
       {/* Frame 1 — PagerDuty incident */}
       <Post
         avatarSrc={avatarPagerduty}
-        avatarAlt="Pagerduty"
-        username="Pagerduty"
+        avatarAlt="PagerDuty"
+        username="PagerDuty"
         timestamp="10:43 AM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           title="API latency spike — us-east-1"
@@ -115,11 +89,11 @@ export default function FramesPage() {
         avatarAlt="Airbase"
         username="Airbase"
         timestamp="10:43 AM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           title="New purchase request submitted"
-          description="Consolidating existing existing seats under a new consolidated subscription with centralized admin, SSO, audit logging, and IT admin controls. Year 1 cost reflects a discount on the standard rate."
+          description="Consolidating existing seats under a new consolidated subscription with centralized admin, SSO, audit logging, and IT admin controls. Year 1 cost reflects a discount on the standard rate."
           metrics={[
             { value: '$3,129.99', label: 'Amount (USD)' },
             { value: 'Medium', label: 'Urgency (5 business days)' },
@@ -165,7 +139,7 @@ export default function FramesPage() {
         avatarAlt="Salesforce"
         username="Salesforce"
         timestamp="10:43 AM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           header={{
@@ -216,7 +190,7 @@ export default function FramesPage() {
         avatarAlt="Entra"
         username="Entra"
         timestamp="10:43 AM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           header={{

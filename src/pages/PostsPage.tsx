@@ -68,7 +68,7 @@ export default function PostsPage() {
         avatarAlt="Mass Notification System"
         username="Mass Notification System"
         timestamp="06:54 UTC"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           header={{
@@ -195,7 +195,7 @@ export default function PostsPage() {
         avatarAlt="Entity Network Alert"
         username="Entity Network Alert"
         timestamp="06:47 UTC"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           header={{
@@ -256,7 +256,7 @@ export default function PostsPage() {
         avatarAlt="DataOps"
         username="DataOps"
         timestamp="06:15 UTC"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           title="Pipeline build completed — SIGINT Feed Ingestion"
@@ -315,7 +315,7 @@ export default function PostsPage() {
         avatarAlt="Geospatial Insight"
         username="Geospatial Insight"
         timestamp="05:22 UTC"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           header={{
@@ -376,7 +376,7 @@ export default function PostsPage() {
         avatarAlt="Flight Tracker"
         username="Flight Tracker"
         timestamp="05:41 UTC"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           header={{
@@ -445,7 +445,7 @@ export default function PostsPage() {
         avatarAlt="Mission Systems"
         username="Mission Systems Bot"
         timestamp="05:05 UTC"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           header={{
@@ -506,7 +506,7 @@ export default function PostsPage() {
         avatarAlt="PagerDuty"
         username="PagerDuty"
         timestamp="9:14 AM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           title="Database replication lag — prod-db-02"
@@ -549,7 +549,7 @@ export default function PostsPage() {
         avatarAlt="Datadog"
         username="Datadog"
         timestamp="11:22 AM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           title="Memory usage anomaly — payments-service"
@@ -581,7 +581,7 @@ export default function PostsPage() {
         avatarAlt="OpsGenie"
         username="OpsGenie"
         timestamp="8:00 AM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           title="On-call handoff — Platform Engineering"
@@ -647,7 +647,7 @@ export default function PostsPage() {
         avatarAlt="AWS"
         username="AWS"
         timestamp="2:05 PM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           title="Cost anomaly detected — us-east-1"
@@ -686,7 +686,7 @@ export default function PostsPage() {
         avatarAlt="Salesforce"
         username="Salesforce"
         timestamp="10:43 AM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           header={{
@@ -754,7 +754,7 @@ export default function PostsPage() {
         avatarAlt="HubSpot"
         username="HubSpot"
         timestamp="3:17 PM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           header={{
@@ -788,7 +788,7 @@ export default function PostsPage() {
         avatarAlt="Zendesk"
         username="Zendesk"
         timestamp="1:48 PM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           header={{
@@ -847,7 +847,7 @@ export default function PostsPage() {
         avatarAlt="Salesforce"
         username="Salesforce"
         timestamp="4:30 PM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           title="Quote Q-2026-0892 ready for review"
@@ -879,7 +879,7 @@ export default function PostsPage() {
         avatarAlt="Airbase"
         username="Airbase"
         timestamp="10:02 AM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           title="Expense report submitted for approval"
@@ -908,7 +908,7 @@ export default function PostsPage() {
         avatarAlt="Workday"
         username="Workday"
         timestamp="9:45 AM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           header={{
@@ -957,7 +957,7 @@ export default function PostsPage() {
         avatarAlt="Coupa"
         username="Coupa"
         timestamp="11:55 AM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           title="Vendor invoice pending approval — INV-2026-3341"
@@ -985,7 +985,7 @@ export default function PostsPage() {
         avatarAlt="Jira"
         username="Jira"
         timestamp="2:33 PM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           header={{
@@ -1062,7 +1062,7 @@ export default function PostsPage() {
         avatarAlt="Entra"
         username="Entra"
         timestamp="8:30 AM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           header={{
@@ -1113,7 +1113,7 @@ export default function PostsPage() {
         avatarAlt="Okta"
         username="Okta"
         timestamp="3:52 PM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           title="New application access request"
@@ -1166,7 +1166,7 @@ export default function PostsPage() {
         avatarAlt="ServiceNow"
         username="ServiceNow"
         timestamp="10:18 AM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           title="High priority IT ticket — INC0042891"
@@ -1217,7 +1217,7 @@ export default function PostsPage() {
         avatarAlt="GitHub"
         username="GitHub"
         timestamp="4:05 PM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           header={{
@@ -1281,7 +1281,7 @@ export default function PostsPage() {
         avatarAlt="Linear"
         username="Linear"
         timestamp="9:00 AM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           title="Sprint 52 — standup summary"
@@ -1334,7 +1334,7 @@ export default function PostsPage() {
         avatarAlt="Security"
         username="Security"
         timestamp="7:14 AM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           title="Suspicious login activity detected"
@@ -1378,7 +1378,7 @@ export default function PostsPage() {
         avatarAlt="Greenhouse"
         username="Greenhouse"
         timestamp="2:20 PM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           header={{
@@ -1428,7 +1428,7 @@ export default function PostsPage() {
         avatarAlt="Stripe"
         username="Stripe"
         timestamp="5:38 PM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment
           header={{
@@ -1467,7 +1467,7 @@ export default function PostsPage() {
         avatarAlt="PagerDuty"
         username="PagerDuty"
         timestamp="9:12 AM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment title="Trigger a manual incident">
           <TextInput
@@ -1518,7 +1518,7 @@ export default function PostsPage() {
         avatarAlt="Jira"
         username="Jira"
         timestamp="11:30 AM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment title="Create a Jira issue">
           <Select
@@ -1583,7 +1583,7 @@ export default function PostsPage() {
         avatarAlt="Workday"
         username="Workday"
         timestamp="3:45 PM"
-        isBot={true}
+        isBot
       >
         <MessageAttachment title="Submit an expense">
           <div

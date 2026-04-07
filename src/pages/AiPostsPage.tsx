@@ -10,43 +10,8 @@ import {
   TimelineItem,
 } from '@/components';
 import avatarMatty from '@/assets/avatar-matty.png';
+import postStyles from '@/components/Post/Post.module.scss';
 import BackButton from '@/nav/BackButton';
-
-const msgText: React.CSSProperties = {
-  margin: 0,
-  fontFamily: 'Open Sans, sans-serif',
-  fontSize: 14,
-  fontWeight: 400,
-  lineHeight: '20px',
-  color: 'var(--center-channel-color)',
-};
-
-const code: React.CSSProperties = {
-  fontFamily: 'ui-monospace, "Cascadia Code", "Fira Code", monospace',
-  fontSize: 13,
-  background: 'rgba(var(--center-channel-color-rgb), 0.08)',
-  padding: '1px 5px',
-  borderRadius: 3,
-};
-
-const codeBlock: React.CSSProperties = {
-  background: 'rgba(var(--center-channel-color-rgb), 0.04)',
-  border: '1px solid rgba(var(--center-channel-color-rgb), 0.08)',
-  borderRadius: 4,
-  padding: '10px 12px',
-  fontFamily: 'ui-monospace, "Cascadia Code", "Fira Code", monospace',
-  fontSize: 12,
-  lineHeight: '18px',
-  color: 'var(--center-channel-color)',
-  whiteSpace: 'pre' as const,
-  overflowX: 'auto' as const,
-};
-
-const pickerGroup: React.CSSProperties = {
-  display: 'flex',
-  flexDirection: 'column',
-  gap: 4,
-};
 
 export default function AiPostsPage() {
   const [jiraProject, setJiraProject] = useState<number | null>(null);
@@ -73,9 +38,9 @@ export default function AiPostsPage() {
         isBot
         botLabel="Agent"
       >
-        <p style={msgText}>
+        <p className={postStyles.bodyText}>
           I found 8 branches in{' '}
-          <code style={code}>mattermost/mattermost-server</code> that haven't
+          <code className={postStyles.inlineCode}>mattermost/mattermost-server</code> that haven't
           had a commit in over 90 days. I can delete them to keep the repo tidy
           — take a look and let me know if I should go ahead.
         </p>
@@ -90,7 +55,7 @@ export default function AiPostsPage() {
             { label: 'Reject', variant: 'secondary' },
           ]}
         >
-          <div style={codeBlock}>
+          <div className={postStyles.codeBlock}>
             {`github.delete_branch(repo="mattermost/mattermost-server", branches=[
   "fix/MM-48291-avatar-upload",
   "feat/MM-47100-onboarding-v2",
@@ -149,7 +114,7 @@ export default function AiPostsPage() {
         isBot
         botLabel="Agent"
       >
-        <p style={msgText}>
+        <p className={postStyles.bodyText}>
           I have everything I need to file Aiko's bug report, but I'm not sure
           which Jira project it belongs to. Please select the project.
         </p>
@@ -163,7 +128,7 @@ export default function AiPostsPage() {
           <div
             role="listbox"
             aria-label="Jira project"
-            style={pickerGroup}
+            className={postStyles.pickerGroup}
           >
             <SingleSelectPicker
               index={1}
@@ -200,7 +165,7 @@ export default function AiPostsPage() {
         isBot
         botLabel="Agent"
       >
-        <p style={msgText}>
+        <p className={postStyles.bodyText}>
           The post-mortem draft for INC-2026-0089 is ready. Who should I send it
           to? I've pre-selected Leila and Arjun based on service ownership — let
           me know if you'd like to add anyone else.
@@ -216,7 +181,7 @@ export default function AiPostsPage() {
             { label: 'Skip', variant: 'secondary' },
           ]}
         >
-          <div style={pickerGroup}>
+          <div className={postStyles.pickerGroup}>
             <MultiSelectPicker
               label="Leila Haddad — Engineering Manager"
               checked={notify.leila}
@@ -266,9 +231,9 @@ export default function AiPostsPage() {
         isBot
         botLabel="Agent"
       >
-        <p style={msgText}>
+        <p className={postStyles.bodyText}>
           The 1.14.2 schema migration is staged and ready to run on{' '}
-          <code style={code}>prod-db-01</code>. A couple of the index operations
+          <code className={postStyles.inlineCode}>prod-db-01</code>. A couple of the index operations
           will briefly lock rows, and this one can't be auto-reversed if
           something goes wrong — just want to make sure you're good to proceed.
         </p>
@@ -328,7 +293,7 @@ export default function AiPostsPage() {
         isBot
         botLabel="Agent"
       >
-        <p style={msgText}>
+        <p className={postStyles.bodyText}>
           Done! I've opened a draft pull request for the webhook retry changes.
           I auto-suggested Ethan and Danielle as reviewers based on recent
           activity in those files — let me know if you'd like to swap anyone
@@ -356,7 +321,7 @@ export default function AiPostsPage() {
         isBot
         botLabel="Agent"
       >
-        <p style={msgText}>
+        <p className={postStyles.bodyText}>
           Pre-deployment checks for v1.14.2 all passed. Before I continue with
           the pipeline, which environment should I deploy to?
         </p>
@@ -412,7 +377,7 @@ export default function AiPostsPage() {
           <div
             role="listbox"
             aria-label="Deployment environment"
-            style={pickerGroup}
+            className={postStyles.pickerGroup}
           >
             <SingleSelectPicker
               index={1}
@@ -449,9 +414,9 @@ export default function AiPostsPage() {
         isBot
         botLabel="Agent"
       >
-        <p style={msgText}>
+        <p className={postStyles.bodyText}>
           I detected a live AWS access key in{' '}
-          <code style={code}>company/infra-scripts</code> — it was pushed to a
+          <code className={postStyles.inlineCode}>company/infra-scripts</code> — it was pushed to a
           public repo about 14 minutes ago and is still active. I can revoke and
           rotate it right now. Given the exposure window, I'd recommend moving
           quickly on this.
@@ -481,7 +446,7 @@ export default function AiPostsPage() {
             { label: 'Dismiss', variant: 'secondary' },
           ]}
         >
-          <div style={codeBlock}>
+          <div className={postStyles.codeBlock}>
             {`# Exposed in commit 4f8a29d — deploy.sh line 14
 export AWS_ACCESS_KEY_ID="AKIA••••••••••••J7F2"
 export AWS_SECRET_ACCESS_KEY="••••••••••••••••••••••••••••••••••••••••"`}
