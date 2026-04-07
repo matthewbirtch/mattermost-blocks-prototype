@@ -4,6 +4,7 @@ import Post from '../components/Post/Post'
 import MessageAttachment from '../components/MessageAttachment/MessageAttachment'
 import SingleSelectPicker from '../components/SingleSelectPicker/SingleSelectPicker'
 import MultiSelectPicker from '../components/MultiSelectPicker/MultiSelectPicker'
+import Spinner from '../components/Spinner/Spinner'
 import avatarMatty from '../assets/avatar-matty.png'
 import userDavidL from '../assets/user-david-liang.png'
 import BackButton from '../nav/BackButton'
@@ -81,10 +82,9 @@ function Msg({ children }: { children: React.ReactNode }) {
 function TypingPost() {
   return (
     <Post avatarSrc={avatarMatty} avatarAlt="Matty" username="Matty" timestamp="" isBot botLabel="Agent">
-      <div className={styles.typingDots}>
-        <span className={styles.dot} />
-        <span className={styles.dot} />
-        <span className={styles.dot} />
+      <div className={styles.typingSpinner}>
+        <Spinner size={12} aria-label="Thinking" />
+        <span className={styles.typingLabel}>Thinking</span>
       </div>
     </Post>
   )

@@ -9,7 +9,7 @@
   animation: spinner-spin 750ms linear infinite;
   background: conic-gradient(
     rgba(var(--center-channel-color-rgb), 0),
-    rgba(var(--center-channel-color-rgb), 0.48)
+    rgba(var(--center-channel-color-rgb), 0.64)
   );
   mask-image: radial-gradient(
     farthest-side,
@@ -20,7 +20,7 @@
   &--inverted {
     background: conic-gradient(
       rgba(var(--button-color-rgb), 0),
-      rgba(var(--button-color-rgb), 0.48)
+      rgba(var(--button-color-rgb), 0.64)
     );
   }
 }
