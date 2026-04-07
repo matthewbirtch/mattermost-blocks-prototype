@@ -29,7 +29,9 @@ export default function SequenceItem({
           )}
         </div>
         <div className={styles.content}>
-          <span className={`${styles.title} ${status === 'completed' ? styles.strikethrough : ''}`}>
+          <span
+            className={`${styles.title} ${status === 'completed' ? styles.strikethrough : ''}`}
+          >
             {title}
           </span>
           {detail && <span className={styles.detail}>{detail}</span>}

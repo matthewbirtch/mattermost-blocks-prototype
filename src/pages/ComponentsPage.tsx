@@ -1,41 +1,49 @@
 import { useState } from 'react';
 import OpenInNewIcon from '@mattermost/compass-icons/components/open-in-new';
-import Button from '../components/Button/Button';
-import Checkbox from '../components/Checkbox/Checkbox';
-import SingleSelectPicker from '../components/SingleSelectPicker/SingleSelectPicker';
-import MultiSelectPicker from '../components/MultiSelectPicker/MultiSelectPicker';
-import Spinner from '../components/Spinner/Spinner';
-import Radio from '../components/Radio/Radio';
-import Switch from '../components/Switch/Switch';
-import TextInput from '../components/TextInput/TextInput';
-import UserAvatar from '../components/UserAvatar/UserAvatar';
-import CollapsibleSection from '../components/CollapsibleSection/CollapsibleSection';
-import Metric from '../components/Metric/Metric';
-import ActionBar from '../components/ActionBar/ActionBar';
-import Select from '../components/Select/Select';
-import KeyValue from '../components/KeyValue/KeyValue';
-import SequenceItem from '../components/SequenceItem/SequenceItem';
-import TimelineItem from '../components/TimelineItem/TimelineItem';
-import UserList from '../components/UserList/UserList';
-import Divider from '../components/Divider/Divider';
-import EntityHeader from '../components/EntityHeader/EntityHeader';
-import userLeonardRiley from '../assets/user-leonard-riley.png';
-import userAikoTan from '../assets/user-aiko-tan.png';
-import userArjunPatel from '../assets/user-arjun-patel.png';
-import userDanielleOkoro from '../assets/user-danielle-okoro.png';
-import userDariusCole from '../assets/user-darius-cole.png';
-import userDavidLiang from '../assets/user-david-liang.png';
-import userEmmaNovak from '../assets/user-emma-novak.png';
-import userEthanBrooks from '../assets/user-ethan-brooks.png';
-import userIsabellaCruz from '../assets/user-isabella-cruz.png';
-import userLeilaHaddad from '../assets/user-leila-haddad.png';
-import userLukasMeyer from '../assets/user-lukas-meyer.png';
-import userMarcoRinaldi from '../assets/user-marco-rinaldi.png';
-import userSofiaBauer from '../assets/user-sofia-bauer.png';
-import BackButton from '../nav/BackButton';
+import {
+  ActionBar,
+  Button,
+  Checkbox,
+  CollapsibleSection,
+  Divider,
+  EntityHeader,
+  KeyValue,
+  Metric,
+  MultiSelectPicker,
+  Radio,
+  Select,
+  SequenceItem,
+  SingleSelectPicker,
+  Spinner,
+  Switch,
+  TextInput,
+  TimelineItem,
+  UserAvatar,
+  UserList,
+} from '@/components';
+import userLeonardRiley from '@/assets/user-leonard-riley.png';
+import userAikoTan from '@/assets/user-aiko-tan.png';
+import userArjunPatel from '@/assets/user-arjun-patel.png';
+import userDanielleOkoro from '@/assets/user-danielle-okoro.png';
+import userDariusCole from '@/assets/user-darius-cole.png';
+import userDavidLiang from '@/assets/user-david-liang.png';
+import userEmmaNovak from '@/assets/user-emma-novak.png';
+import userEthanBrooks from '@/assets/user-ethan-brooks.png';
+import userIsabellaCruz from '@/assets/user-isabella-cruz.png';
+import userLeilaHaddad from '@/assets/user-leila-haddad.png';
+import userLukasMeyer from '@/assets/user-lukas-meyer.png';
+import userMarcoRinaldi from '@/assets/user-marco-rinaldi.png';
+import userSofiaBauer from '@/assets/user-sofia-bauer.png';
+import BackButton from '@/nav/BackButton';
 import styles from './ComponentsPage.module.scss';
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
     <section className={styles.section}>
       <h2 className={styles.sectionTitle}>{title}</h2>
@@ -44,9 +52,20 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   );
 }
 
-function Row({ label, children, align = 'center' }: { label: string; children: React.ReactNode; align?: 'center' | 'start' }) {
+function Row({
+  label,
+  children,
+  align = 'center',
+}: {
+  label: string;
+  children: React.ReactNode;
+  align?: 'center' | 'start';
+}) {
   return (
-    <div className={styles.row} style={{ alignItems: align === 'start' ? 'flex-start' : 'center' }}>
+    <div
+      className={styles.row}
+      style={{ alignItems: align === 'start' ? 'flex-start' : 'center' }}
+    >
       <span className={styles.rowLabel}>{label}</span>
       <div className={styles.rowContent}>{children}</div>
     </div>
@@ -54,18 +73,42 @@ function Row({ label, children, align = 'center' }: { label: string; children: R
 }
 
 const demoUsers = [
-  { avatarSrc: userLeonardRiley, name: 'Leonard Riley', role: 'Director, Security Engineering' },
+  {
+    avatarSrc: userLeonardRiley,
+    name: 'Leonard Riley',
+    role: 'Director, Security Engineering',
+  },
   { avatarSrc: userAikoTan, name: 'Aiko Tan', role: 'Senior Manager' },
-  { avatarSrc: userArjunPatel, name: 'Arjun Patel', role: 'Platform Administrator' },
-  { avatarSrc: userDanielleOkoro, name: 'Danielle Okoro', role: 'Software Engineer' },
+  {
+    avatarSrc: userArjunPatel,
+    name: 'Arjun Patel',
+    role: 'Platform Administrator',
+  },
+  {
+    avatarSrc: userDanielleOkoro,
+    name: 'Danielle Okoro',
+    role: 'Software Engineer',
+  },
   { avatarSrc: userDariusCole, name: 'Darius Cole', role: 'Product Designer' },
   { avatarSrc: userDavidLiang, name: 'David Liang', role: 'Product Manager' },
   { avatarSrc: userEmmaNovak, name: 'Emma Novak', role: 'Frontend Engineer' },
-  { avatarSrc: userEthanBrooks, name: 'Ethan Brooks', role: 'Backend Engineer' },
+  {
+    avatarSrc: userEthanBrooks,
+    name: 'Ethan Brooks',
+    role: 'Backend Engineer',
+  },
   { avatarSrc: userIsabellaCruz, name: 'Isabella Cruz', role: 'UX Researcher' },
-  { avatarSrc: userLeilaHaddad, name: 'Leila Haddad', role: 'Engineering Manager' },
+  {
+    avatarSrc: userLeilaHaddad,
+    name: 'Leila Haddad',
+    role: 'Engineering Manager',
+  },
   { avatarSrc: userLukasMeyer, name: 'Lukas Meyer', role: 'DevOps Engineer' },
-  { avatarSrc: userMarcoRinaldi, name: 'Marco Rinaldi', role: 'Security Analyst' },
+  {
+    avatarSrc: userMarcoRinaldi,
+    name: 'Marco Rinaldi',
+    role: 'Security Analyst',
+  },
   { avatarSrc: userSofiaBauer, name: 'Sofia Bauer', role: 'Sales Engineer' },
 ];
 
@@ -82,13 +125,19 @@ export default function ComponentsPage() {
       <Section title="Button">
         <Row label="Primary">
           <Button variant="primary">Save changes</Button>
-          <Button variant="primary" trailingIcon={<OpenInNewIcon size={16} color="currentColor" />}>
+          <Button
+            variant="primary"
+            trailingIcon={<OpenInNewIcon size={16} color="currentColor" />}
+          >
             Open in app
           </Button>
         </Row>
         <Row label="Secondary">
           <Button variant="secondary">Cancel</Button>
-          <Button variant="secondary" trailingIcon={<OpenInNewIcon size={16} color="currentColor" />}>
+          <Button
+            variant="secondary"
+            trailingIcon={<OpenInNewIcon size={16} color="currentColor" />}
+          >
             View details
           </Button>
         </Row>
@@ -101,8 +150,12 @@ export default function ComponentsPage() {
           <Button variant="danger">Delete</Button>
         </Row>
         <Row label="Loading">
-          <Button variant="primary" loading>Saving</Button>
-          <Button variant="danger" loading>Deleting</Button>
+          <Button variant="primary" loading>
+            Saving
+          </Button>
+          <Button variant="danger" loading>
+            Deleting
+          </Button>
         </Row>
       </Section>
 
@@ -118,7 +171,16 @@ export default function ComponentsPage() {
           <Spinner size={32} />
         </Row>
         <Row label="Inverted">
-          <div style={{ display: 'flex', gap: 16, alignItems: 'center', background: 'var(--button-bg)', padding: '8px 12px', borderRadius: 4 }}>
+          <div
+            style={{
+              display: 'flex',
+              gap: 16,
+              alignItems: 'center',
+              background: 'var(--button-bg)',
+              padding: '8px 12px',
+              borderRadius: 4,
+            }}
+          >
             <Spinner size={16} inverted />
             <Spinner size={20} inverted />
             <Spinner size={24} inverted />
@@ -143,24 +205,36 @@ export default function ComponentsPage() {
           <Checkbox size="Large">Large</Checkbox>
         </Row>
         <Row label="Invalid">
-          <Checkbox valid={false} defaultChecked>Accept terms</Checkbox>
+          <Checkbox valid={false} defaultChecked>
+            Accept terms
+          </Checkbox>
         </Row>
       </Section>
 
       {/* Radio */}
       <Section title="Radio">
         <Row label="Group">
-          <Radio name="priority" defaultChecked>High</Radio>
+          <Radio name="priority" defaultChecked>
+            High
+          </Radio>
           <Radio name="priority">Medium</Radio>
           <Radio name="priority">Low</Radio>
         </Row>
         <Row label="Sizes">
-          <Radio name="size-demo" size="Small">Small</Radio>
-          <Radio name="size-demo" size="Medium" defaultChecked>Medium</Radio>
-          <Radio name="size-demo" size="Large">Large</Radio>
+          <Radio name="size-demo" size="Small">
+            Small
+          </Radio>
+          <Radio name="size-demo" size="Medium" defaultChecked>
+            Medium
+          </Radio>
+          <Radio name="size-demo" size="Large">
+            Large
+          </Radio>
         </Row>
         <Row label="Invalid">
-          <Radio name="invalid-demo" valid={false} defaultChecked>Invalid option</Radio>
+          <Radio name="invalid-demo" valid={false} defaultChecked>
+            Invalid option
+          </Radio>
         </Row>
       </Section>
 
@@ -173,13 +247,18 @@ export default function ComponentsPage() {
           <Switch defaultChecked>Desktop notifications</Switch>
         </Row>
         <Row label="With description">
-          <Switch defaultChecked secondaryLabel="Receive alerts when someone mentions you">
+          <Switch
+            defaultChecked
+            secondaryLabel="Receive alerts when someone mentions you"
+          >
             Mentions
           </Switch>
         </Row>
         <Row label="Sizes">
           <Switch size="Small">Small</Switch>
-          <Switch size="Medium" defaultChecked>Medium</Switch>
+          <Switch size="Medium" defaultChecked>
+            Medium
+          </Switch>
           <Switch size="Large">Large</Switch>
         </Row>
       </Section>
@@ -196,7 +275,12 @@ export default function ComponentsPage() {
           <TextInput label="Username" defaultValue="bad value" invalid />
         </Row>
         <Row label="With character count">
-          <TextInput label="Note" maxLength={100} showCharacterCount placeholder="Write a note…" />
+          <TextInput
+            label="Note"
+            maxLength={100}
+            showCharacterCount
+            placeholder="Write a note…"
+          />
         </Row>
       </Section>
 
@@ -210,9 +294,24 @@ export default function ComponentsPage() {
           <UserAvatar src={userLeonardRiley} alt="Leonard Riley" size="64" />
         </Row>
         <Row label="With status">
-          <UserAvatar src={userLeonardRiley} alt="Leonard Riley" size="32" status />
-          <UserAvatar src={userLeonardRiley} alt="Leonard Riley" size="40" status />
-          <UserAvatar src={userLeonardRiley} alt="Leonard Riley" size="48" status />
+          <UserAvatar
+            src={userLeonardRiley}
+            alt="Leonard Riley"
+            size="32"
+            status
+          />
+          <UserAvatar
+            src={userLeonardRiley}
+            alt="Leonard Riley"
+            size="40"
+            status
+          />
+          <UserAvatar
+            src={userLeonardRiley}
+            alt="Leonard Riley"
+            size="48"
+            status
+          />
         </Row>
       </Section>
 
@@ -267,17 +366,25 @@ export default function ComponentsPage() {
       {/* Action Bar */}
       <Section title="Action Bar">
         <Row label="Mixed actions">
-          <ActionBar actions={[
-            { label: 'Acknowledge', variant: 'primary' },
-            { label: 'Reassign', variant: 'secondary' },
-            { label: 'Resolve', variant: 'secondary' },
-          ]} />
+          <ActionBar
+            actions={[
+              { label: 'Acknowledge', variant: 'primary' },
+              { label: 'Reassign', variant: 'secondary' },
+              { label: 'Resolve', variant: 'secondary' },
+            ]}
+          />
         </Row>
         <Row label="With icon">
-          <ActionBar actions={[
-            { label: 'Open in app', variant: 'primary', trailingIcon: <OpenInNewIcon size={16} color="currentColor" /> },
-            { label: 'View details', variant: 'secondary' },
-          ]} />
+          <ActionBar
+            actions={[
+              {
+                label: 'Open in app',
+                variant: 'primary',
+                trailingIcon: <OpenInNewIcon size={16} color="currentColor" />,
+              },
+              { label: 'View details', variant: 'secondary' },
+            ]}
+          />
         </Row>
         <Row label="Select + button">
           <div style={{ width: '100%' }}>
@@ -299,13 +406,31 @@ export default function ComponentsPage() {
       {/* Collapsible Section */}
       <Section title="Collapsible Section">
         <Row label="Collapsed" align="start">
-          <CollapsibleSection title="Technical details" badge="6 fields" defaultOpen={false} />
+          <CollapsibleSection
+            title="Technical details"
+            badge="6 fields"
+            defaultOpen={false}
+          />
         </Row>
         <Row label="Expanded" align="start">
-          <CollapsibleSection title="Timeline" badge="3 events" defaultOpen={true}>
-            <TimelineItem title="Incident triggered" detail="11:04 AM PST • Datadog alert" />
-            <TimelineItem title="Acknowledged by Alex Morgan" detail="11:31 · via mobile" />
-            <TimelineItem title="Escalation paused" detail="11:31 · Next: L2 in 25 min" isLast />
+          <CollapsibleSection
+            title="Timeline"
+            badge="3 events"
+            defaultOpen={true}
+          >
+            <TimelineItem
+              title="Incident triggered"
+              detail="11:04 AM PST • Datadog alert"
+            />
+            <TimelineItem
+              title="Acknowledged by Alex Morgan"
+              detail="11:31 · via mobile"
+            />
+            <TimelineItem
+              title="Escalation paused"
+              detail="11:31 · Next: L2 in 25 min"
+              isLast
+            />
           </CollapsibleSection>
         </Row>
       </Section>
@@ -314,9 +439,19 @@ export default function ComponentsPage() {
       <Section title="Timeline Item">
         <Row label="Items" align="start">
           <div style={{ width: '100%' }}>
-            <TimelineItem title="Incident triggered" detail="11:04 AM PST • Datadog alert" />
-            <TimelineItem title="Acknowledged by Alex Morgan" detail="11:31 · via mobile" />
-            <TimelineItem title="Escalation paused" detail="11:31 · Next: L2 in 25 min" isLast />
+            <TimelineItem
+              title="Incident triggered"
+              detail="11:04 AM PST • Datadog alert"
+            />
+            <TimelineItem
+              title="Acknowledged by Alex Morgan"
+              detail="11:31 · via mobile"
+            />
+            <TimelineItem
+              title="Escalation paused"
+              detail="11:31 · Next: L2 in 25 min"
+              isLast
+            />
           </div>
         </Row>
       </Section>
@@ -325,10 +460,24 @@ export default function ComponentsPage() {
       <Section title="Sequence Item">
         <Row label="States" align="start">
           <div style={{ width: '100%' }}>
-            <SequenceItem step={1} title="Department approval" status="completed" />
-            <SequenceItem step={2} title="Budget Approval" detail="Pending • 3 approvers" status="active" />
+            <SequenceItem
+              step={1}
+              title="Department approval"
+              status="completed"
+            />
+            <SequenceItem
+              step={2}
+              title="Budget Approval"
+              detail="Pending • 3 approvers"
+              status="active"
+            />
             <SequenceItem step={3} title="Vendor Onboarding" status="pending" />
-            <SequenceItem step={4} title="Legal & Security Review" status="pending" isLast />
+            <SequenceItem
+              step={4}
+              title="Legal & Security Review"
+              status="pending"
+              isLast
+            />
           </div>
         </Row>
       </Section>
@@ -354,16 +503,63 @@ export default function ComponentsPage() {
       {/* Single Select Picker */}
       <Section title="Single Select Picker">
         <Row label="List" align="start">
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 4, width: '100%' }}>
-            <SingleSelectPicker index={1} label="UX Design" selected={selectedBasic === 1} onClick={() => setSelectedBasic(1)} />
-            <SingleSelectPicker index={2} label="Engineering" selected={selectedBasic === 2} onClick={() => setSelectedBasic(2)} />
-            <SingleSelectPicker index={3} label="Product Management" selected={selectedBasic === 3} onClick={() => setSelectedBasic(3)} border={false} />
+          <div
+            role="listbox"
+            aria-label="Team role"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 4,
+              width: '100%',
+            }}
+          >
+            <SingleSelectPicker
+              index={1}
+              label="UX Design"
+              selected={selectedBasic === 1}
+              onClick={() => setSelectedBasic(1)}
+            />
+            <SingleSelectPicker
+              index={2}
+              label="Engineering"
+              selected={selectedBasic === 2}
+              onClick={() => setSelectedBasic(2)}
+            />
+            <SingleSelectPicker
+              index={3}
+              label="Product Management"
+              selected={selectedBasic === 3}
+              onClick={() => setSelectedBasic(3)}
+              border={false}
+            />
           </div>
         </Row>
         <Row label="With description" align="start">
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 4, width: '100%' }}>
-            <SingleSelectPicker index={1} label="UX Design" description="Figma, Figjam, and design tools" selected={selectedDesc === 1} onClick={() => setSelectedDesc(1)} />
-            <SingleSelectPicker index={2} label="Engineering" description="Frontend, backend, and platform" selected={selectedDesc === 2} onClick={() => setSelectedDesc(2)} border={false} />
+          <div
+            role="listbox"
+            aria-label="Team role"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 4,
+              width: '100%',
+            }}
+          >
+            <SingleSelectPicker
+              index={1}
+              label="UX Design"
+              description="Figma, Figjam, and design tools"
+              selected={selectedDesc === 1}
+              onClick={() => setSelectedDesc(1)}
+            />
+            <SingleSelectPicker
+              index={2}
+              label="Engineering"
+              description="Frontend, backend, and platform"
+              selected={selectedDesc === 2}
+              onClick={() => setSelectedDesc(2)}
+              border={false}
+            />
           </div>
         </Row>
       </Section>
@@ -371,16 +567,38 @@ export default function ComponentsPage() {
       {/* Multi Select Picker */}
       <Section title="Multi Select Picker">
         <Row label="List" align="start">
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 4, width: '100%' }}>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 4,
+              width: '100%',
+            }}
+          >
             <MultiSelectPicker label="UX Design" />
             <MultiSelectPicker label="Engineering" />
             <MultiSelectPicker label="Product Management" border={false} />
           </div>
         </Row>
         <Row label="With description" align="start">
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 4, width: '100%' }}>
-            <MultiSelectPicker label="UX Design" description="Figma, Figjam, and design tools" />
-            <MultiSelectPicker label="Engineering" description="Frontend, backend, and platform" defaultChecked border={false} />
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 4,
+              width: '100%',
+            }}
+          >
+            <MultiSelectPicker
+              label="UX Design"
+              description="Figma, Figjam, and design tools"
+            />
+            <MultiSelectPicker
+              label="Engineering"
+              description="Frontend, backend, and platform"
+              defaultChecked
+              border={false}
+            />
           </div>
         </Row>
       </Section>
@@ -389,16 +607,24 @@ export default function ComponentsPage() {
       <Section title="Entity Header">
         <Row label="Basic" align="start">
           <div style={{ width: '100%' }}>
-            <EntityHeader initials="NP" title="NovaPrime Corp" subtitle="Professional · New Subscription" />
+            <EntityHeader
+              initials="NP"
+              title="NovaPrime Corp"
+              subtitle="Professional · New Subscription"
+            />
           </div>
         </Row>
         <Row label="With chip" align="start">
           <div style={{ width: '100%' }}>
-            <EntityHeader initials="PD" title="Users assigned to PagerDuty" subtitle="Application" chip={{ label: 'Enabled', variant: 'success' }} />
+            <EntityHeader
+              initials="PD"
+              title="Users assigned to PagerDuty"
+              subtitle="Application"
+              chip={{ label: 'Enabled', variant: 'success' }}
+            />
           </div>
         </Row>
       </Section>
-
     </div>
   );
 }

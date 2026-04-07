@@ -26,16 +26,21 @@ export default function CollapsibleSection({
         aria-expanded={isOpen}
       >
         <div className={styles.headerLeft}>
-          <span className={`${styles.chevron} ${isOpen ? styles['chevron--open'] : ''}`}>
-            <ChevronDownIcon size={12} color="rgba(var(--center-channel-color-rgb), 0.75)" />
+          <span
+            className={`${styles.chevron} ${isOpen ? styles['chevron--open'] : ''}`}
+          >
+            <ChevronDownIcon
+              size={12}
+              color="rgba(var(--center-channel-color-rgb), 0.75)"
+            />
           </span>
           <span className={styles.title}>{title}</span>
         </div>
-        {badge !== undefined && (
-          <span className={styles.count}>{badge}</span>
-        )}
+        {badge !== undefined && <span className={styles.count}>{badge}</span>}
       </button>
-      <div className={`${styles.bodyWrapper} ${isOpen ? styles['bodyWrapper--open'] : ''}`}>
+      <div
+        className={`${styles.bodyWrapper} ${isOpen ? styles['bodyWrapper--open'] : ''}`}
+      >
         <div className={styles.bodyInner}>
           <div className={styles.body}>{children}</div>
         </div>

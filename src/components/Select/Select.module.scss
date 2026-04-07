@@ -32,7 +32,9 @@
     line-height: 20px;
     color: var(--center-channel-color);
     cursor: pointer;
-    transition: border-color 150ms ease, box-shadow 150ms ease;
+    transition:
+      border-color 150ms ease,
+      box-shadow 150ms ease;
 
     &:hover:not(:disabled) {
       border-color: rgba(var(--center-channel-color-rgb), 0.32);

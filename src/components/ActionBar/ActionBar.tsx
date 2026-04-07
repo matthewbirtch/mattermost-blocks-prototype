@@ -1,14 +1,20 @@
 import React from 'react';
-import Button from '../Button/Button';
-import Select, { SelectOption } from '../Select/Select';
+import Button from '@/components/Button';
+import Select, { type SelectOption } from '@/components/Select';
 import styles from './ActionBar.module.scss';
 
 type Action = {
+  /** Stable key for React reconciliation; prefer when labels may repeat or order changes. */
+  id?: string;
   label: string;
   variant?: 'primary' | 'secondary' | 'success' | 'danger';
   onClick?: () => void;
   trailingIcon?: React.ReactNode;
 };
+
+function actionKey(action: Action, index: number): string {
+  return action.id ?? `${index}-${action.label}`;
+}
 
 type ActionBarSelect = {
   options: SelectOption[];
@@ -35,9 +41,9 @@ export default function ActionBar({ actions, select }: ActionBarProps) {
             onChange={select.onChange}
           />
         </div>
-        {actions.map((action) => (
+        {actions.map((action, index) => (
           <Button
-            key={action.label}
+            key={actionKey(action, index)}
             variant={action.variant ?? 'primary'}
             onClick={action.onClick}
             trailingIcon={action.trailingIcon}
@@ -51,9 +57,9 @@ export default function ActionBar({ actions, select }: ActionBarProps) {
 
   return (
     <div className={styles.actionBar}>
-      {actions.map((action) => (
+      {actions.map((action, index) => (
         <Button
-          key={action.label}
+          key={actionKey(action, index)}
           variant={action.variant ?? 'secondary'}
           onClick={action.onClick}
           trailingIcon={action.trailingIcon}

@@ -1,21 +1,23 @@
-import type { KeyboardEvent, MouseEvent } from 'react'
-import styles from './SingleSelectPicker.module.scss'
+import type { KeyboardEvent, MouseEvent } from 'react';
+import styles from './SingleSelectPicker.module.scss';
 
 export interface SingleSelectPickerProps {
   /** The label text for this option. */
-  label: string
+  label: string;
   /** Optional description shown below the label. */
-  description?: string
+  description?: string;
   /** The number displayed in the badge (1-based index). */
-  index: number
+  index: number;
   /** Whether this option is currently selected. */
-  selected?: boolean
+  selected?: boolean;
   /** Show bottom separator line when unselected. Default: true. */
-  border?: boolean
+  border?: boolean;
   /** Called when the row is clicked or activated via keyboard. */
-  onClick?: (e: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>) => void
+  onClick?: (
+    e: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>,
+  ) => void;
   /** Optional CSS class. */
-  className?: string
+  className?: string;
 }
 
 /**
@@ -40,12 +42,12 @@ export default function SingleSelectPicker({
     className,
   ]
     .filter(Boolean)
-    .join(' ')
+    .join(' ');
 
   function handleKeyDown(e: KeyboardEvent<HTMLDivElement>) {
     if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault()
-      onClick?.(e)
+      e.preventDefault();
+      onClick?.(e);
     }
   }
 
@@ -64,12 +66,17 @@ export default function SingleSelectPicker({
       <div className={styles['single-select-picker__content']}>
         <span className={styles['single-select-picker__label']}>{label}</span>
         {description && (
-          <span className={styles['single-select-picker__description']}>{description}</span>
+          <span className={styles['single-select-picker__description']}>
+            {description}
+          </span>
         )}
       </div>
       {!selected && border && (
-        <span className={styles['single-select-picker__separator']} aria-hidden />
+        <span
+          className={styles['single-select-picker__separator']}
+          aria-hidden
+        />
       )}
     </div>
-  )
+  );
 }

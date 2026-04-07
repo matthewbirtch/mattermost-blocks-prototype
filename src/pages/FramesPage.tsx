@@ -1,21 +1,23 @@
 import OpenInNewIcon from '@mattermost/compass-icons/components/open-in-new';
-import avatarPagerduty from '../assets/avatar-pagerduty.png';
-import avatarAirbase from '../assets/avatar-airbase.png';
-import avatarSalesforce from '../assets/avatar-salesforce.png';
-import avatarEntra from '../assets/avatar-entra.png';
-import userLeonardRiley from '../assets/user-leonard-riley.png';
-import userAikoTan from '../assets/user-aiko-tan.png';
-import userArjunPatel from '../assets/user-arjun-patel.png';
-import userDanielleOkoro from '../assets/user-danielle-okoro.png';
-import userDariusCole from '../assets/user-darius-cole.png';
-import userDavidLiang from '../assets/user-david-liang.png';
-import Post from '../components/Post/Post';
-import UserList from '../components/UserList/UserList';
-import MessageAttachment from '../components/MessageAttachment/MessageAttachment';
-import CollapsibleSection from '../components/CollapsibleSection/CollapsibleSection';
-import TimelineItem from '../components/TimelineItem/TimelineItem';
-import SequenceItem from '../components/SequenceItem/SequenceItem';
-import BackButton from '../nav/BackButton';
+import avatarPagerduty from '@/assets/avatar-pagerduty.png';
+import avatarAirbase from '@/assets/avatar-airbase.png';
+import avatarSalesforce from '@/assets/avatar-salesforce.png';
+import avatarEntra from '@/assets/avatar-entra.png';
+import userLeonardRiley from '@/assets/user-leonard-riley.png';
+import userAikoTan from '@/assets/user-aiko-tan.png';
+import userArjunPatel from '@/assets/user-arjun-patel.png';
+import userDanielleOkoro from '@/assets/user-danielle-okoro.png';
+import userDariusCole from '@/assets/user-darius-cole.png';
+import userDavidLiang from '@/assets/user-david-liang.png';
+import {
+  CollapsibleSection,
+  MessageAttachment,
+  Post,
+  SequenceItem,
+  TimelineItem,
+  UserList,
+} from '@/components';
+import BackButton from '@/nav/BackButton';
 
 const timelineEvents = [
   { title: 'Incident triggered', detail: '11:04 AM PST • Datadog alert' },
@@ -24,21 +26,46 @@ const timelineEvents = [
 ];
 
 const entraPagerDutyUsers = [
-  { avatarSrc: userLeonardRiley, name: 'Leonard Riley', role: 'Director, Security Engineering' },
+  {
+    avatarSrc: userLeonardRiley,
+    name: 'Leonard Riley',
+    role: 'Director, Security Engineering',
+  },
   { avatarSrc: userAikoTan, name: 'Aiko Tan', role: 'Senior Manager' },
-  { avatarSrc: userArjunPatel, name: 'Arjun Patel', role: 'Platform Administrator' },
-  { avatarSrc: userDanielleOkoro, name: 'Danielle Okoro', role: 'Software Engineer' },
+  {
+    avatarSrc: userArjunPatel,
+    name: 'Arjun Patel',
+    role: 'Platform Administrator',
+  },
+  {
+    avatarSrc: userDanielleOkoro,
+    name: 'Danielle Okoro',
+    role: 'Software Engineer',
+  },
   { avatarSrc: userDariusCole, name: 'Darius Cole', role: 'Product Designer' },
   { avatarSrc: userDavidLiang, name: 'David Liang', role: 'Product Manager' },
 ];
 
 const approvalChain = [
   { step: 1, title: 'Department approval', status: 'completed' as const },
-  { step: 2, title: 'Budget Approval', detail: 'Pending • 3 approvers', status: 'active' as const },
+  {
+    step: 2,
+    title: 'Budget Approval',
+    detail: 'Pending • 3 approvers',
+    status: 'active' as const,
+  },
   { step: 3, title: 'Vendor Onboarding', status: 'pending' as const },
-  { step: 4, title: '3rd Party Paper Legal & Security Review', status: 'pending' as const },
+  {
+    step: 4,
+    title: '3rd Party Paper Legal & Security Review',
+    status: 'pending' as const,
+  },
   { step: 5, title: 'OneTrust Security Review', status: 'pending' as const },
-  { step: 6, title: 'Finance & Accounting Approval', status: 'pending' as const },
+  {
+    step: 6,
+    title: 'Finance & Accounting Approval',
+    status: 'pending' as const,
+  },
 ];
 
 export default function FramesPage() {
@@ -113,7 +140,11 @@ export default function FramesPage() {
             },
           ]}
         >
-          <CollapsibleSection title="Approval chain" badge="6 steps" defaultOpen={true}>
+          <CollapsibleSection
+            title="Approval chain"
+            badge="6 steps"
+            defaultOpen={true}
+          >
             {approvalChain.map((item, index) => (
               <SequenceItem
                 key={item.step}
@@ -137,7 +168,11 @@ export default function FramesPage() {
         isBot={true}
       >
         <MessageAttachment
-          header={{ initials: 'NP', title: 'NovaPrime Corp', subtitle: 'Professional · New Subscription' }}
+          header={{
+            initials: 'NP',
+            title: 'NovaPrime Corp',
+            subtitle: 'Professional · New Subscription',
+          }}
           metrics={[
             { value: '$18,000', label: 'Net new ARR' },
             { value: '150', label: 'Seats' },
@@ -145,7 +180,12 @@ export default function FramesPage() {
             { value: '2026-03-17', label: 'Close date' },
           ]}
           fields={[
-            { label: 'Use case', value: 'Resilient/Out-of-Band Communication — used by Cyber Security Team for mission critical comms. Business objective: communicate securely.', colSpan: 4 },
+            {
+              label: 'Use case',
+              value:
+                'Resilient/Out-of-Band Communication — used by Cyber Security Team for mission critical comms. Business objective: communicate securely.',
+              colSpan: 4,
+            },
             { label: 'Sales rep', value: 'Dana Mitchell' },
             { label: 'Customer engineer', value: 'Raj Patel' },
             { label: 'Account manager', value: 'Arnold Williamson' },
@@ -162,7 +202,11 @@ export default function FramesPage() {
             { label: 'View contacts', variant: 'secondary' },
           ]}
         >
-          <CollapsibleSection title="Technical details" badge="6 fields" defaultOpen={false} />
+          <CollapsibleSection
+            title="Technical details"
+            badge="6 fields"
+            defaultOpen={false}
+          />
         </MessageAttachment>
       </Post>
 
@@ -193,7 +237,6 @@ export default function FramesPage() {
           <UserList users={entraPagerDutyUsers} />
         </MessageAttachment>
       </Post>
-
     </div>
   );
 }

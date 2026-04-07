@@ -1,20 +1,22 @@
-import type { ChangeEvent, InputHTMLAttributes } from 'react'
-import { useId } from 'react'
-import CheckIcon from '@mattermost/compass-icons/components/check'
-import { useControllable } from '@/hooks/useControllable'
-import { Icon } from '@/components/Icon'
-import styles from './MultiSelectPicker.module.scss'
+import type { ChangeEvent, InputHTMLAttributes } from 'react';
+import { useId } from 'react';
+import CheckIcon from '@mattermost/compass-icons/components/check';
+import { useControllable } from '@/hooks/useControllable';
+import { Icon } from '@/components/Icon';
+import styles from './MultiSelectPicker.module.scss';
 
-export interface MultiSelectPickerProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'> {
+export interface MultiSelectPickerProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'size' | 'type'
+> {
   /** The label text for this option. */
-  label: string
+  label: string;
   /** Optional description shown below the label. */
-  description?: string
+  description?: string;
   /** Show bottom separator line when unchecked. Default: true. */
-  border?: boolean
+  border?: boolean;
   /** Optional CSS class. */
-  className?: string
+  className?: string;
 }
 
 /**
@@ -37,9 +39,13 @@ export default function MultiSelectPicker({
   onChange,
   ...rest
 }: MultiSelectPickerProps) {
-  const generatedId = useId()
-  const id = idProp ?? generatedId
-  const [resolvedChecked, handleChange] = useControllable(checked, defaultChecked, onChange as ((e: ChangeEvent<HTMLInputElement>) => void) | undefined)
+  const generatedId = useId();
+  const id = idProp ?? generatedId;
+  const [resolvedChecked, handleChange] = useControllable(
+    checked,
+    defaultChecked,
+    onChange as ((e: ChangeEvent<HTMLInputElement>) => void) | undefined,
+  );
 
   const rootClass = [
     styles['multi-select-picker'],
@@ -48,7 +54,7 @@ export default function MultiSelectPicker({
     className,
   ]
     .filter(Boolean)
-    .join(' ')
+    .join(' ');
 
   return (
     <label className={rootClass} htmlFor={id}>
@@ -72,12 +78,17 @@ export default function MultiSelectPicker({
       <div className={styles['multi-select-picker__content']}>
         <span className={styles['multi-select-picker__label']}>{label}</span>
         {description && (
-          <span className={styles['multi-select-picker__description']}>{description}</span>
+          <span className={styles['multi-select-picker__description']}>
+            {description}
+          </span>
         )}
       </div>
       {!resolvedChecked && border && (
-        <span className={styles['multi-select-picker__separator']} aria-hidden />
+        <span
+          className={styles['multi-select-picker__separator']}
+          aria-hidden
+        />
       )}
     </label>
-  )
+  );
 }

@@ -6,11 +6,17 @@ type KeyValueProps = {
   muted?: boolean;
 };
 
-export default function KeyValue({ label, value, muted = false }: KeyValueProps) {
+export default function KeyValue({
+  label,
+  value,
+  muted = false,
+}: KeyValueProps) {
   return (
     <div className={styles.keyValue}>
       <span className={styles.label}>{label}</span>
-      <span className={`${styles.value} ${muted ? styles.muted : ''}`}>{value}</span>
+      <span className={`${styles.value} ${muted ? styles.muted : ''}`}>
+        {value}
+      </span>
     </div>
   );
 }

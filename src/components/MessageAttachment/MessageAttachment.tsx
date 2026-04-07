@@ -1,8 +1,8 @@
 import React from 'react';
-import KeyValue from '../KeyValue/KeyValue';
-import Metric from '../Metric/Metric';
-import ActionBar from '../ActionBar/ActionBar';
-import EntityHeader from '../EntityHeader/EntityHeader';
+import KeyValue from '@/components/KeyValue';
+import Metric from '@/components/Metric';
+import ActionBar from '@/components/ActionBar';
+import EntityHeader from '@/components/EntityHeader';
 import styles from './MessageAttachment.module.scss';
 
 type EntityHeaderProps = {
@@ -25,6 +25,7 @@ type MetricItem = {
 };
 
 type Action = {
+  id?: string;
   label: string;
   variant?: 'primary' | 'secondary' | 'success' | 'danger';
   onClick?: () => void;
@@ -55,7 +56,6 @@ export default function MessageAttachment({
   return (
     <div className={styles.attachment}>
       <div className={styles.inner}>
-
         {header && <EntityHeader {...header} />}
 
         {title && !header && <h2 className={styles.title}>{title}</h2>}
@@ -65,7 +65,11 @@ export default function MessageAttachment({
         {metrics && metrics.length > 0 && (
           <div className={styles.metrics}>
             {metrics.map((metric) => (
-              <Metric key={metric.label} value={metric.value} label={metric.label} />
+              <Metric
+                key={metric.label}
+                value={metric.value}
+                label={metric.label}
+              />
             ))}
           </div>
         )}
@@ -73,14 +77,24 @@ export default function MessageAttachment({
         {fields && fields.length > 0 && (
           <div
             className={styles.fields}
-            style={{ gridTemplateColumns: `repeat(${fieldColumns}, minmax(0, 1fr))` }}
+            style={{
+              gridTemplateColumns: `repeat(${fieldColumns}, minmax(0, 1fr))`,
+            }}
           >
             {fields.map((field) => (
               <div
                 key={field.label}
-                style={field.colSpan ? { gridColumn: `span ${field.colSpan}` } : undefined}
+                style={
+                  field.colSpan
+                    ? { gridColumn: `span ${field.colSpan}` }
+                    : undefined
+                }
               >
-                <KeyValue label={field.label} value={field.value} muted={field.muted} />
+                <KeyValue
+                  label={field.label}
+                  value={field.value}
+                  muted={field.muted}
+                />
               </div>
             ))}
           </div>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import MagnifyIcon from '@mattermost/compass-icons/components/magnify';
-import TextInput from '../TextInput/TextInput';
-import UserListItem from '../UserListItem/UserListItem';
+import TextInput from '@/components/TextInput';
+import UserListItem from '@/components/UserListItem';
 import styles from './UserList.module.scss';
 
 type UserEntry = {
@@ -15,13 +15,17 @@ type UserListProps = {
   filterPlaceholder?: string;
 };
 
-export default function UserList({ users, filterPlaceholder = 'Filter users…' }: UserListProps) {
+export default function UserList({
+  users,
+  filterPlaceholder = 'Filter users…',
+}: UserListProps) {
   const [query, setQuery] = useState('');
 
   const filtered = query.trim()
-    ? users.filter((u) =>
-        u.name.toLowerCase().includes(query.toLowerCase()) ||
-        u.role.toLowerCase().includes(query.toLowerCase())
+    ? users.filter(
+        (u) =>
+          u.name.toLowerCase().includes(query.toLowerCase()) ||
+          u.role.toLowerCase().includes(query.toLowerCase()),
       )
     : users;
 
@@ -37,7 +41,12 @@ export default function UserList({ users, filterPlaceholder = 'Filter users…' 
       </div>
       <div className={styles.list}>
         {filtered.map((user) => (
-          <UserListItem key={user.name} avatarSrc={user.avatarSrc} name={user.name} role={user.role} />
+          <UserListItem
+            key={user.name}
+            avatarSrc={user.avatarSrc}
+            name={user.name}
+            role={user.role}
+          />
         ))}
         {filtered.length === 0 && (
           <p className={styles.empty}>No users match "{query}"</p>

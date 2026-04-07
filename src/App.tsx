@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import IndexPage from './pages/IndexPage';
-import FramesPage from './pages/FramesPage';
-import ComponentsPage from './pages/ComponentsPage';
-import PostsPage from './pages/PostsPage';
-import AiPostsPage from './pages/AiPostsPage';
-import ConversationPage from './pages/ConversationPage';
+import IndexPage from '@/pages/IndexPage';
+import FramesPage from '@/pages/FramesPage';
+import ComponentsPage from '@/pages/ComponentsPage';
+import PostsPage from '@/pages/PostsPage';
+import AiPostsPage from '@/pages/AiPostsPage';
+import ConversationPage from '@/pages/ConversationPage';
 
 const TITLE_PREFIX = 'Mattermost Post Block Playground';
 
@@ -38,7 +38,7 @@ export default function App() {
         <Route path="/components" element={<ComponentsPage />} />
         <Route path="/posts" element={<PostsPage />} />
         <Route path="/ai-posts" element={<AiPostsPage />} />
-      <Route path="/conversation" element={<ConversationPage />} />
+        <Route path="/conversation" element={<ConversationPage />} />
       </Routes>
     </>
   );

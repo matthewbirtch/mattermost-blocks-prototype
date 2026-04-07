@@ -1,5 +1,5 @@
 import React from 'react';
-import Spinner from '@/components/Spinner/Spinner';
+import Spinner from '@/components/Spinner';
 import styles from './Button.module.scss';
 
 type ButtonVariant = 'primary' | 'secondary' | 'success' | 'danger';

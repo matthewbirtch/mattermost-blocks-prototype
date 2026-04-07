@@ -1,6 +1,10 @@
 @keyframes spinner-spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .spinner {
@@ -14,7 +18,7 @@
   mask-image: radial-gradient(
     farthest-side,
     transparent calc(100% - var(--spinner-stroke-width, 2px)),
-    #fff       calc(100% - var(--spinner-stroke-width, 2px))
+    #fff calc(100% - var(--spinner-stroke-width, 2px))
   );
 
   &--inverted {

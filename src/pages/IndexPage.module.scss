@@ -14,7 +14,9 @@
   border-radius: 4px;
   background-color: var(--center-channel-bg);
   text-decoration: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 
   &:hover {
     border-color: rgba(var(--center-channel-color-rgb), 0.24);

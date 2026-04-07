@@ -1,6 +1,6 @@
 import React from 'react';
-import UserAvatar from '../UserAvatar/UserAvatar';
-import MessageHeader from '../MessageHeader/MessageHeader';
+import { UserAvatar } from '@/components/UserAvatar';
+import MessageHeader from '@/components/MessageHeader';
 import styles from './Post.module.scss';
 
 type PostProps = {

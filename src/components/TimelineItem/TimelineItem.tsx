@@ -6,7 +6,11 @@ type TimelineItemProps = {
   isLast?: boolean;
 };
 
-export default function TimelineItem({ title, detail, isLast = false }: TimelineItemProps) {
+export default function TimelineItem({
+  title,
+  detail,
+  isLast = false,
+}: TimelineItemProps) {
   return (
     <div className={styles.outer}>
       <div className={`${styles.inner} ${isLast ? styles.last : ''}`}>

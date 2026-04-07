@@ -1,124 +1,136 @@
-import type { InputHTMLAttributes, ReactNode, ChangeEvent } from 'react'
-import { forwardRef, useId, useState, useCallback } from 'react'
-import styles from './TextInput.module.scss'
+import type { InputHTMLAttributes, ReactNode, ChangeEvent } from 'react';
+import { forwardRef, useId, useState, useCallback } from 'react';
+import styles from './TextInput.module.scss';
 
-export interface TextInputProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
+export interface TextInputProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'size'
+> {
   /** Optional CSS class name. */
-  className?: string
+  className?: string;
   /** When true, shows invalid/error styling. */
-  invalid?: boolean
+  invalid?: boolean;
   /** Label rendered above the input. */
-  label?: ReactNode
+  label?: ReactNode;
   /** Leading icon (e.g. <Icon glyph={<SearchIcon size={16} />} size="16" />). */
-  leadingIcon?: ReactNode
+  leadingIcon?: ReactNode;
   /** Max length for the input; used with showCharacterCount for counter. */
-  maxLength?: number
+  maxLength?: number;
   /** When true with maxLength, shows "current / max" character count below input. */
-  showCharacterCount?: boolean
+  showCharacterCount?: boolean;
   /** Trailing icon. */
-  trailingIcon?: ReactNode
+  trailingIcon?: ReactNode;
 }
 
-const TextInput = forwardRef<HTMLInputElement, TextInputProps>(function TextInput(
-  {
-    className = '',
-    label,
-    leadingIcon,
-    trailingIcon,
-    invalid = false,
-    maxLength,
-    showCharacterCount = false,
-    id: idProp,
-    value: valueProp,
-    defaultValue,
-    placeholder,
-    onChange,
-    disabled,
-    readOnly,
-    ...rest
-  },
-  ref,
-) {
-  const generatedId = useId()
-  const id = idProp ?? generatedId
-
-  const isControlled = valueProp !== undefined
-  const [uncontrolledValue, setUncontrolledValue] = useState(defaultValue ?? '')
-  const currentValue = isControlled ? (valueProp as string) : uncontrolledValue
-  const currentLength = typeof currentValue === 'string' ? currentValue.length : 0
-
-  const handleChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>) => {
-      if (!isControlled) setUncontrolledValue(e.target.value)
-      onChange?.(e)
+const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
+  function TextInput(
+    {
+      className = '',
+      label,
+      leadingIcon,
+      trailingIcon,
+      invalid = false,
+      maxLength,
+      showCharacterCount = false,
+      id: idProp,
+      value: valueProp,
+      defaultValue,
+      placeholder,
+      onChange,
+      disabled,
+      readOnly,
+      ...rest
     },
-    [isControlled, onChange],
-  )
+    ref,
+  ) {
+    const generatedId = useId();
+    const id = idProp ?? generatedId;
 
-  const invalidClass = invalid ? styles['textInput--invalid'] : ''
-  const hasLeadingClass = leadingIcon != null ? styles['textInput--has-leading-icon'] : ''
-  const hasTrailingClass = trailingIcon != null ? styles['textInput--has-trailing-icon'] : ''
+    const isControlled = valueProp !== undefined;
+    const [uncontrolledValue, setUncontrolledValue] = useState(
+      defaultValue ?? '',
+    );
+    const currentValue = isControlled
+      ? (valueProp as string)
+      : uncontrolledValue;
+    const currentLength =
+      typeof currentValue === 'string' ? currentValue.length : 0;
 
-  const rootClass = [
-    styles.textInput,
-    invalidClass,
-    hasLeadingClass,
-    hasTrailingClass,
-    className,
-  ]
-    .filter(Boolean)
-    .join(' ')
+    const handleChange = useCallback(
+      (e: ChangeEvent<HTMLInputElement>) => {
+        if (!isControlled) setUncontrolledValue(e.target.value);
+        onChange?.(e);
+      },
+      [isControlled, onChange],
+    );
 
-  const counterId = showCharacterCount && maxLength != null ? `${id}-counter` : undefined
+    const invalidClass = invalid ? styles['textInput--invalid'] : '';
+    const hasLeadingClass =
+      leadingIcon != null ? styles['textInput--has-leading-icon'] : '';
+    const hasTrailingClass =
+      trailingIcon != null ? styles['textInput--has-trailing-icon'] : '';
 
-  return (
-    <div className={rootClass}>
-      {label != null && (
-        <label className={styles.textInput__label} htmlFor={id}>
-          {label}
-        </label>
-      )}
-      <div className={styles.textInput__wrapper}>
-        <div className={styles.textInput__inner}>
-          {leadingIcon != null && (
-            <span className={styles.textInput__leadingIcon}>
-              {leadingIcon}
-            </span>
-          )}
-          <input
-            ref={ref}
-            id={id}
-            className={styles.textInput__input}
-            value={isControlled ? valueProp : undefined}
-            defaultValue={isControlled ? undefined : defaultValue}
-            placeholder={placeholder}
-            maxLength={maxLength}
-            disabled={disabled}
-            readOnly={readOnly}
-            aria-invalid={invalid ? true : undefined}
-            aria-describedby={counterId}
-            onChange={handleChange}
-            {...rest}
-          />
-          {trailingIcon != null && (
-            <span className={styles.textInput__trailingIcon}>
-              {trailingIcon}
-            </span>
-          )}
+    const rootClass = [
+      styles.textInput,
+      invalidClass,
+      hasLeadingClass,
+      hasTrailingClass,
+      className,
+    ]
+      .filter(Boolean)
+      .join(' ');
+
+    const counterId =
+      showCharacterCount && maxLength != null ? `${id}-counter` : undefined;
+
+    return (
+      <div className={rootClass}>
+        {label != null && (
+          <label className={styles.textInput__label} htmlFor={id}>
+            {label}
+          </label>
+        )}
+        <div className={styles.textInput__wrapper}>
+          <div className={styles.textInput__inner}>
+            {leadingIcon != null && (
+              <span className={styles.textInput__leadingIcon}>
+                {leadingIcon}
+              </span>
+            )}
+            <input
+              ref={ref}
+              id={id}
+              className={styles.textInput__input}
+              value={isControlled ? valueProp : undefined}
+              defaultValue={isControlled ? undefined : defaultValue}
+              placeholder={placeholder}
+              maxLength={maxLength}
+              disabled={disabled}
+              readOnly={readOnly}
+              aria-invalid={invalid ? true : undefined}
+              aria-describedby={counterId}
+              onChange={handleChange}
+              {...rest}
+            />
+            {trailingIcon != null && (
+              <span className={styles.textInput__trailingIcon}>
+                {trailingIcon}
+              </span>
+            )}
+          </div>
         </div>
+        {showCharacterCount && maxLength != null && (
+          <div
+            id={counterId}
+            className={styles.textInput__counter}
+            aria-live="polite"
+          >
+            {currentLength} / {maxLength}
+          </div>
+        )}
       </div>
-      {showCharacterCount && maxLength != null && (
-        <div
-          id={counterId}
-          className={styles.textInput__counter}
-          aria-live="polite"
-        >
-          {currentLength} / {maxLength}
-        </div>
-      )}
-    </div>
-  )
-})
+    );
+  },
+);
 
-export default TextInput
+export default TextInput;

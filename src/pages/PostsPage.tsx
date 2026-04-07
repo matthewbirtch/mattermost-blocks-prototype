@@ -1,46 +1,48 @@
 import OpenInNewIcon from '@mattermost/compass-icons/components/open-in-new';
-import avatarPagerduty from '../assets/avatar-pagerduty.png';
-import avatarDatadog from '../assets/avatar-datadog.png';
-import avatarOpsgenie from '../assets/avatar-opsgenie.png';
-import avatarAws from '../assets/avatar-aws.png';
-import avatarSalesforce from '../assets/avatar-salesforce.png';
-import avatarHubspot from '../assets/avatar-hubspot.png';
-import avatarZendesk from '../assets/avatar-zendesk.png';
-import avatarAirbase from '../assets/avatar-airbase.png';
-import avatarWorkday from '../assets/avatar-workday.png';
-import avatarCoupa from '../assets/avatar-coupa.png';
-import avatarJira from '../assets/avatar-jira.png';
-import avatarEntra from '../assets/avatar-entra.png';
-import avatarOkta from '../assets/avatar-okta.png';
-import avatarServicenow from '../assets/avatar-servicenow.png';
-import avatarGithub from '../assets/avatar-github.png';
-import avatarLinear from '../assets/avatar-linear.png';
-import avatarGreenhouse from '../assets/avatar-greenhouse.png';
-import avatarStripe from '../assets/avatar-stripe.png';
-import userLukasM from '../assets/user-lukas-meyer.png';
-import userEthanB from '../assets/user-ethan-brooks.png';
-import userDanielleO from '../assets/user-danielle-okoro.png';
-import userDariusC from '../assets/user-darius-cole.png';
-import userLeilaH from '../assets/user-leila-haddad.png';
-import userMarcoR from '../assets/user-marco-rinaldi.png';
-import userLeonardR from '../assets/user-leonard-riley.png';
-import userAikoT from '../assets/user-aiko-tan.png';
-import userArjunP from '../assets/user-arjun-patel.png';
-import userIsabellaC from '../assets/user-isabella-cruz.png';
-import userDavidL from '../assets/user-david-liang.png';
-import Post from '../components/Post/Post';
-import MessageAttachment from '../components/MessageAttachment/MessageAttachment';
-import CollapsibleSection from '../components/CollapsibleSection/CollapsibleSection';
-import TimelineItem from '../components/TimelineItem/TimelineItem';
-import SequenceItem from '../components/SequenceItem/SequenceItem';
-import UserList from '../components/UserList/UserList';
-import ActionBar from '../components/ActionBar/ActionBar';
-import TextInput from '../components/TextInput/TextInput';
-import Select from '../components/Select/Select';
-import Radio from '../components/Radio/Radio';
-import Checkbox from '../components/Checkbox/Checkbox';
-import Divider from '../components/Divider/Divider';
-import BackButton from '../nav/BackButton';
+import avatarPagerduty from '@/assets/avatar-pagerduty.png';
+import avatarDatadog from '@/assets/avatar-datadog.png';
+import avatarOpsgenie from '@/assets/avatar-opsgenie.png';
+import avatarAws from '@/assets/avatar-aws.png';
+import avatarSalesforce from '@/assets/avatar-salesforce.png';
+import avatarHubspot from '@/assets/avatar-hubspot.png';
+import avatarZendesk from '@/assets/avatar-zendesk.png';
+import avatarAirbase from '@/assets/avatar-airbase.png';
+import avatarWorkday from '@/assets/avatar-workday.png';
+import avatarCoupa from '@/assets/avatar-coupa.png';
+import avatarJira from '@/assets/avatar-jira.png';
+import avatarEntra from '@/assets/avatar-entra.png';
+import avatarOkta from '@/assets/avatar-okta.png';
+import avatarServicenow from '@/assets/avatar-servicenow.png';
+import avatarGithub from '@/assets/avatar-github.png';
+import avatarLinear from '@/assets/avatar-linear.png';
+import avatarGreenhouse from '@/assets/avatar-greenhouse.png';
+import avatarStripe from '@/assets/avatar-stripe.png';
+import userLukasM from '@/assets/user-lukas-meyer.png';
+import userEthanB from '@/assets/user-ethan-brooks.png';
+import userDanielleO from '@/assets/user-danielle-okoro.png';
+import userDariusC from '@/assets/user-darius-cole.png';
+import userLeilaH from '@/assets/user-leila-haddad.png';
+import userMarcoR from '@/assets/user-marco-rinaldi.png';
+import userLeonardR from '@/assets/user-leonard-riley.png';
+import userAikoT from '@/assets/user-aiko-tan.png';
+import userArjunP from '@/assets/user-arjun-patel.png';
+import userIsabellaC from '@/assets/user-isabella-cruz.png';
+import userDavidL from '@/assets/user-david-liang.png';
+import {
+  ActionBar,
+  Checkbox,
+  CollapsibleSection,
+  Divider,
+  MessageAttachment,
+  Post,
+  Radio,
+  Select,
+  SequenceItem,
+  TextInput,
+  TimelineItem,
+  UserList,
+} from '@/components';
+import BackButton from '@/nav/BackButton';
 
 function svgAvatar(text: string, bg: string, fg: string): string {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect width="32" height="32" rx="4" fill="${bg}"/><text x="16" y="21" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="${fg}" text-anchor="middle">${text}</text></svg>`;
@@ -82,11 +84,17 @@ export default function PostsPage() {
             { value: '18m', label: 'Elapsed' },
           ]}
           fields={[
-            { label: 'Template', value: 'Critical Infrastructure Alert — Tier 1' },
+            {
+              label: 'Template',
+              value: 'Critical Infrastructure Alert — Tier 1',
+            },
             { label: 'Initiated by', value: 'Leonard Riley' },
             { label: 'Start time', value: 'April 2, 2026 · 06:54 UTC' },
             { label: 'Total recipients', value: '1,204' },
-            { label: 'Conference bridge', value: '+1 (800) 555-0199 · PIN 4402#' },
+            {
+              label: 'Conference bridge',
+              value: '+1 (800) 555-0199 · PIN 4402#',
+            },
             { label: 'Emergency line', value: '+1 (800) 555-0911' },
           ]}
           fieldColumns={2}
@@ -100,21 +108,83 @@ export default function PostsPage() {
             { label: 'Join conference bridge', variant: 'secondary' },
           ]}
         >
-          <CollapsibleSection title="Channel delivery" badge="4 channels" defaultOpen={false}>
-            <TimelineItem title="Push notifications — 891 delivered of 1,204 sent (74%)" detail="Delivery complete · 06:54 UTC" />
-            <TimelineItem title="SMS — 847 delivered of 1,204 sent (70%)" detail="Delivery complete · 06:55 UTC" />
-            <TimelineItem title="Email — 1,189 delivered of 1,204 sent (99%)" detail="Delivery complete · 06:54 UTC" />
-            <TimelineItem title="Voice calls — 634 answered, 48 missed (emergency line active)" detail="Outreach ongoing · started 06:55 UTC" isLast={true} />
+          <CollapsibleSection
+            title="Channel delivery"
+            badge="4 channels"
+            defaultOpen={false}
+          >
+            <TimelineItem
+              title="Push notifications — 891 delivered of 1,204 sent (74%)"
+              detail="Delivery complete · 06:54 UTC"
+            />
+            <TimelineItem
+              title="SMS — 847 delivered of 1,204 sent (70%)"
+              detail="Delivery complete · 06:55 UTC"
+            />
+            <TimelineItem
+              title="Email — 1,189 delivered of 1,204 sent (99%)"
+              detail="Delivery complete · 06:54 UTC"
+            />
+            <TimelineItem
+              title="Voice calls — 634 answered, 48 missed (emergency line active)"
+              detail="Outreach ongoing · started 06:55 UTC"
+              isLast={true}
+            />
           </CollapsibleSection>
-          <CollapsibleSection title="Emergency response checklist" badge="8 tasks · 3 complete" defaultOpen={false}>
-            <SequenceItem step={1} title="Activate facility emergency protocol" detail="Completed · Leonard Riley · 06:51 UTC" status="completed" />
-            <SequenceItem step={2} title="Notify site security team" detail="Completed · automated · 06:52 UTC" status="completed" />
-            <SequenceItem step={3} title="Initiate mass notification" detail="Completed · automated · 06:54 UTC" status="completed" />
-            <SequenceItem step={4} title="Open emergency conference bridge" detail="Active · 14 participants connected" status="active" />
-            <SequenceItem step={5} title="Account for all personnel" detail="Active · 534 of 847 confirmed" status="active" />
-            <SequenceItem step={6} title="Coordinate with local authorities" detail="Pending" status="pending" />
-            <SequenceItem step={7} title="Prepare incident report" detail="Pending" status="pending" />
-            <SequenceItem step={8} title="Send all-clear notification" detail="Pending" status="pending" isLast />
+          <CollapsibleSection
+            title="Emergency response checklist"
+            badge="8 tasks · 3 complete"
+            defaultOpen={false}
+          >
+            <SequenceItem
+              step={1}
+              title="Activate facility emergency protocol"
+              detail="Completed · Leonard Riley · 06:51 UTC"
+              status="completed"
+            />
+            <SequenceItem
+              step={2}
+              title="Notify site security team"
+              detail="Completed · automated · 06:52 UTC"
+              status="completed"
+            />
+            <SequenceItem
+              step={3}
+              title="Initiate mass notification"
+              detail="Completed · automated · 06:54 UTC"
+              status="completed"
+            />
+            <SequenceItem
+              step={4}
+              title="Open emergency conference bridge"
+              detail="Active · 14 participants connected"
+              status="active"
+            />
+            <SequenceItem
+              step={5}
+              title="Account for all personnel"
+              detail="Active · 534 of 847 confirmed"
+              status="active"
+            />
+            <SequenceItem
+              step={6}
+              title="Coordinate with local authorities"
+              detail="Pending"
+              status="pending"
+            />
+            <SequenceItem
+              step={7}
+              title="Prepare incident report"
+              detail="Pending"
+              status="pending"
+            />
+            <SequenceItem
+              step={8}
+              title="Send all-clear notification"
+              detail="Pending"
+              status="pending"
+              isLast
+            />
           </CollapsibleSection>
         </MessageAttachment>
       </Post>
@@ -154,11 +224,28 @@ export default function PostsPage() {
             { label: 'Escalate', variant: 'danger' },
           ]}
         >
-          <CollapsibleSection title="Connection network" badge="14 connections" defaultOpen={false}>
-            <TimelineItem title="OBJ-0831 · Known associate — prior flag 2025-09" detail="Contact event · April 1, 2026 · 05:11 UTC" />
-            <TimelineItem title="OBJ-1204 · Financial entity — shell company cluster" detail="Proximity match · March 30, 2026 · 22:40 UTC" />
-            <TimelineItem title="OBJ-2987 · Location — monitored facility" detail="Geospatial correlation · March 31, 2026 · 14:23 UTC" />
-            <TimelineItem title="OBJ-3340 · Communications device — IMSI flagged" detail="Signal intercept match · April 1, 2026 · 03:58 UTC" isLast={true} />
+          <CollapsibleSection
+            title="Connection network"
+            badge="14 connections"
+            defaultOpen={false}
+          >
+            <TimelineItem
+              title="OBJ-0831 · Known associate — prior flag 2025-09"
+              detail="Contact event · April 1, 2026 · 05:11 UTC"
+            />
+            <TimelineItem
+              title="OBJ-1204 · Financial entity — shell company cluster"
+              detail="Proximity match · March 30, 2026 · 22:40 UTC"
+            />
+            <TimelineItem
+              title="OBJ-2987 · Location — monitored facility"
+              detail="Geospatial correlation · March 31, 2026 · 14:23 UTC"
+            />
+            <TimelineItem
+              title="OBJ-3340 · Communications device — IMSI flagged"
+              detail="Signal intercept match · April 1, 2026 · 03:58 UTC"
+              isLast={true}
+            />
           </CollapsibleSection>
         </MessageAttachment>
       </Post>
@@ -196,11 +283,28 @@ export default function PostsPage() {
             { label: 'View lineage', variant: 'secondary' },
           ]}
         >
-          <CollapsibleSection title="Build log" badge="3 warnings" defaultOpen={false}>
-            <TimelineItem title="Source dataset snapshot acquired" detail="06:00:03 UTC · 2.41M records" />
-            <TimelineItem title="Warning: 3 schema drift fields detected in feed-bravo" detail="06:02:17 UTC · auto-coerced to string" />
-            <TimelineItem title="Transform complete — enrichment stage passed" detail="06:04:44 UTC" />
-            <TimelineItem title="Output written to /ops/sigint/processed" detail="06:04:58 UTC · 2.39M records committed" isLast={true} />
+          <CollapsibleSection
+            title="Build log"
+            badge="3 warnings"
+            defaultOpen={false}
+          >
+            <TimelineItem
+              title="Source dataset snapshot acquired"
+              detail="06:00:03 UTC · 2.41M records"
+            />
+            <TimelineItem
+              title="Warning: 3 schema drift fields detected in feed-bravo"
+              detail="06:02:17 UTC · auto-coerced to string"
+            />
+            <TimelineItem
+              title="Transform complete — enrichment stage passed"
+              detail="06:04:44 UTC"
+            />
+            <TimelineItem
+              title="Output written to /ops/sigint/processed"
+              detail="06:04:58 UTC · 2.39M records committed"
+              isLast={true}
+            />
           </CollapsibleSection>
         </MessageAttachment>
       </Post>
@@ -240,11 +344,28 @@ export default function PostsPage() {
             { label: 'Mark as false positive', variant: 'secondary' },
           ]}
         >
-          <CollapsibleSection title="Sensor readings" badge="12 events" defaultOpen={false}>
-            <TimelineItem title="Initial thermal spike — sensors B07-04, B07-05" detail="05:17:03 UTC · 2.1× baseline" />
-            <TimelineItem title="Movement vector calculated — heading 047° at ~35 kph" detail="05:18:22 UTC" />
-            <TimelineItem title="Correlated by sensors B07-06, B07-09, B07-11" detail="05:19:40 UTC · confidence raised to 94%" />
-            <TimelineItem title="Signature stationary — possible stop at grid 38T YP 4415 8827" detail="05:21:58 UTC" isLast={true} />
+          <CollapsibleSection
+            title="Sensor readings"
+            badge="12 events"
+            defaultOpen={false}
+          >
+            <TimelineItem
+              title="Initial thermal spike — sensors B07-04, B07-05"
+              detail="05:17:03 UTC · 2.1× baseline"
+            />
+            <TimelineItem
+              title="Movement vector calculated — heading 047° at ~35 kph"
+              detail="05:18:22 UTC"
+            />
+            <TimelineItem
+              title="Correlated by sensors B07-06, B07-09, B07-11"
+              detail="05:19:40 UTC · confidence raised to 94%"
+            />
+            <TimelineItem
+              title="Signature stationary — possible stop at grid 38T YP 4415 8827"
+              detail="05:21:58 UTC"
+              isLast={true}
+            />
           </CollapsibleSection>
         </MessageAttachment>
       </Post>
@@ -288,12 +409,32 @@ export default function PostsPage() {
             { label: 'Alert ATC', variant: 'danger' },
           ]}
         >
-          <CollapsibleSection title="Track history" badge="8 waypoints" defaultOpen={false}>
-            <TimelineItem title="Departed KDOV · FL280 climbing" detail="04:52 UTC" />
-            <TimelineItem title="Reached filed FL350 — on track" detail="05:08 UTC" />
-            <TimelineItem title="Began descent — no flight plan amendment filed" detail="05:21 UTC · deviation threshold crossed" />
-            <TimelineItem title="Leveled at FL220 · heading 087°" detail="05:34 UTC · 130 nm east of last waypoint" />
-            <TimelineItem title="ADS-B last received" detail="05:41 UTC · position 36.4°N 42.1°E" isLast={true} />
+          <CollapsibleSection
+            title="Track history"
+            badge="8 waypoints"
+            defaultOpen={false}
+          >
+            <TimelineItem
+              title="Departed KDOV · FL280 climbing"
+              detail="04:52 UTC"
+            />
+            <TimelineItem
+              title="Reached filed FL350 — on track"
+              detail="05:08 UTC"
+            />
+            <TimelineItem
+              title="Began descent — no flight plan amendment filed"
+              detail="05:21 UTC · deviation threshold crossed"
+            />
+            <TimelineItem
+              title="Leveled at FL220 · heading 087°"
+              detail="05:34 UTC · 130 nm east of last waypoint"
+            />
+            <TimelineItem
+              title="ADS-B last received"
+              detail="05:41 UTC · position 36.4°N 42.1°E"
+              isLast={true}
+            />
           </CollapsibleSection>
         </MessageAttachment>
       </Post>
@@ -329,12 +470,32 @@ export default function PostsPage() {
             { label: 'Escalate', variant: 'danger' },
           ]}
         >
-          <CollapsibleSection title="Activity log" badge="5 entries" defaultOpen={false}>
-            <TimelineItem title="SITREP #044 acknowledged — no action required" detail="March 31, 2026 · 23:01 UTC · Lukas Meyer" />
-            <TimelineItem title="FRAGORD-12 issued — updated RoE distributed to elements" detail="March 31, 2026 · 18:30 UTC" />
-            <TimelineItem title="Logistics convoy CONVOY-07 departed FOB ATLAS" detail="March 31, 2026 · 14:00 UTC · ETA 08:00L April 1" />
-            <TimelineItem title="ISR asset tasked — coverage extended to northern sector" detail="March 31, 2026 · 11:45 UTC" />
-            <TimelineItem title="Operation IRON BRIDGE initiated — all elements REDCON-1" detail="March 30, 2026 · 06:00 UTC" isLast={true} />
+          <CollapsibleSection
+            title="Activity log"
+            badge="5 entries"
+            defaultOpen={false}
+          >
+            <TimelineItem
+              title="SITREP #044 acknowledged — no action required"
+              detail="March 31, 2026 · 23:01 UTC · Lukas Meyer"
+            />
+            <TimelineItem
+              title="FRAGORD-12 issued — updated RoE distributed to elements"
+              detail="March 31, 2026 · 18:30 UTC"
+            />
+            <TimelineItem
+              title="Logistics convoy CONVOY-07 departed FOB ATLAS"
+              detail="March 31, 2026 · 14:00 UTC · ETA 08:00L April 1"
+            />
+            <TimelineItem
+              title="ISR asset tasked — coverage extended to northern sector"
+              detail="March 31, 2026 · 11:45 UTC"
+            />
+            <TimelineItem
+              title="Operation IRON BRIDGE initiated — all elements REDCON-1"
+              detail="March 30, 2026 · 06:00 UTC"
+              isLast={true}
+            />
           </CollapsibleSection>
         </MessageAttachment>
       </Post>
@@ -360,10 +521,24 @@ export default function PostsPage() {
             { label: 'Resolve', variant: 'secondary' },
           ]}
         >
-          <CollapsibleSection title="Timeline" badge="3 events" defaultOpen={false}>
-            <TimelineItem title="Replication lag exceeded 30s threshold" detail="9:08 AM PST · automated alert" />
-            <TimelineItem title="Alert routed to DBA on-call" detail="9:09 AM · escalation policy" />
-            <TimelineItem title="Acknowledged by Lukas Meyer" detail="9:12 AM · via mobile" isLast={true} />
+          <CollapsibleSection
+            title="Timeline"
+            badge="3 events"
+            defaultOpen={false}
+          >
+            <TimelineItem
+              title="Replication lag exceeded 30s threshold"
+              detail="9:08 AM PST · automated alert"
+            />
+            <TimelineItem
+              title="Alert routed to DBA on-call"
+              detail="9:09 AM · escalation policy"
+            />
+            <TimelineItem
+              title="Acknowledged by Lukas Meyer"
+              detail="9:12 AM · via mobile"
+              isLast={true}
+            />
           </CollapsibleSection>
         </MessageAttachment>
       </Post>
@@ -421,14 +596,46 @@ export default function PostsPage() {
         >
           <UserList
             users={[
-              { avatarSrc: userLukasM, name: 'Lukas Meyer', role: 'DevOps Engineer' },
-              { avatarSrc: userEthanB, name: 'Ethan Brooks', role: 'Backend Engineer' },
-              { avatarSrc: userDanielleO, name: 'Danielle Okoro', role: 'Software Engineer' },
-              { avatarSrc: userArjunP, name: 'Arjun Patel', role: 'Platform Administrator' },
-              { avatarSrc: userDavidL, name: 'David Liang', role: 'Product Manager' },
-              { avatarSrc: userIsabellaC, name: 'Isabella Cruz', role: 'UX Researcher' },
-              { avatarSrc: userLeonardR, name: 'Leonard Riley', role: 'Director, Security Engineering' },
-              { avatarSrc: userAikoT, name: 'Aiko Tan', role: 'Senior Manager' },
+              {
+                avatarSrc: userLukasM,
+                name: 'Lukas Meyer',
+                role: 'DevOps Engineer',
+              },
+              {
+                avatarSrc: userEthanB,
+                name: 'Ethan Brooks',
+                role: 'Backend Engineer',
+              },
+              {
+                avatarSrc: userDanielleO,
+                name: 'Danielle Okoro',
+                role: 'Software Engineer',
+              },
+              {
+                avatarSrc: userArjunP,
+                name: 'Arjun Patel',
+                role: 'Platform Administrator',
+              },
+              {
+                avatarSrc: userDavidL,
+                name: 'David Liang',
+                role: 'Product Manager',
+              },
+              {
+                avatarSrc: userIsabellaC,
+                name: 'Isabella Cruz',
+                role: 'UX Researcher',
+              },
+              {
+                avatarSrc: userLeonardR,
+                name: 'Leonard Riley',
+                role: 'Director, Security Engineering',
+              },
+              {
+                avatarSrc: userAikoT,
+                name: 'Aiko Tan',
+                role: 'Senior Manager',
+              },
             ]}
           />
         </MessageAttachment>
@@ -454,7 +661,12 @@ export default function PostsPage() {
             { label: 'Region', value: 'us-east-1' },
             { label: 'Period', value: 'March 2026' },
             { label: 'Detected', value: '2:01 PM today' },
-            { label: 'Recommendation', value: 'Anomalous EC2 spend in us-east-1 may be caused by untagged auto-scaling instances. Review instance usage and consider rightsizing or reserved instances.', colSpan: 2 },
+            {
+              label: 'Recommendation',
+              value:
+                'Anomalous EC2 spend in us-east-1 may be caused by untagged auto-scaling instances. Review instance usage and consider rightsizing or reserved instances.',
+              colSpan: 2,
+            },
           ]}
           fieldColumns={2}
           actions={[
@@ -477,14 +689,23 @@ export default function PostsPage() {
         isBot={true}
       >
         <MessageAttachment
-          header={{ initials: 'AP', title: 'Axiom Partners LLC', subtitle: 'Enterprise · Expansion' }}
+          header={{
+            initials: 'AP',
+            title: 'Axiom Partners LLC',
+            subtitle: 'Enterprise · Expansion',
+          }}
           metrics={[
             { value: '$42,000', label: 'Net new ARR' },
             { value: '350', label: 'Seats' },
             { value: '2026-04-30', label: 'Close date' },
           ]}
           fields={[
-            { label: 'Stage change', value: 'Opportunity moved from Proposal/Price Quote to Negotiation/Review. Next step: legal review of MSA redlines with procurement lead.', colSpan: 4 },
+            {
+              label: 'Stage change',
+              value:
+                'Opportunity moved from Proposal/Price Quote to Negotiation/Review. Next step: legal review of MSA redlines with procurement lead.',
+              colSpan: 4,
+            },
             { label: 'Sales rep', value: 'Sofia Bauer' },
             { label: 'Customer engineer', value: 'Raj Patel' },
             { label: 'Account manager', value: 'Dana Mitchell' },
@@ -501,11 +722,28 @@ export default function PostsPage() {
             { label: 'View contacts', variant: 'secondary' },
           ]}
         >
-          <CollapsibleSection title="Activity notes" badge="4 notes" defaultOpen={false}>
-            <TimelineItem title="Discovery call completed" detail="Mar 18 · Dana Mitchell noted strong alignment on security use case and out-of-band comms requirement" />
-            <TimelineItem title="Technical evaluation scheduled" detail="Mar 21 · Mutual action plan shared with procurement lead" />
-            <TimelineItem title="Legal redlines received" detail="Mar 26 · Procurement returned MSA with 3 redlines on data residency clauses" />
-            <TimelineItem title="Moved to Negotiation/Review" detail="Mar 26 · Dana Mitchell · stage updated after legal review initiated" isLast />
+          <CollapsibleSection
+            title="Activity notes"
+            badge="4 notes"
+            defaultOpen={false}
+          >
+            <TimelineItem
+              title="Discovery call completed"
+              detail="Mar 18 · Dana Mitchell noted strong alignment on security use case and out-of-band comms requirement"
+            />
+            <TimelineItem
+              title="Technical evaluation scheduled"
+              detail="Mar 21 · Mutual action plan shared with procurement lead"
+            />
+            <TimelineItem
+              title="Legal redlines received"
+              detail="Mar 26 · Procurement returned MSA with 3 redlines on data residency clauses"
+            />
+            <TimelineItem
+              title="Moved to Negotiation/Review"
+              detail="Mar 26 · Dana Mitchell · stage updated after legal review initiated"
+              isLast
+            />
           </CollapsibleSection>
         </MessageAttachment>
       </Post>
@@ -519,7 +757,11 @@ export default function PostsPage() {
         isBot={true}
       >
         <MessageAttachment
-          header={{ initials: 'MR', title: 'Maya Reinholt', subtitle: 'VP of Engineering · Crestline Systems' }}
+          header={{
+            initials: 'MR',
+            title: 'Maya Reinholt',
+            subtitle: 'VP of Engineering · Crestline Systems',
+          }}
           fields={[
             { label: 'Email', value: 'm.reinholt@crestline.io' },
             { label: 'Phone', value: '+1 (415) 203-9944' },
@@ -549,7 +791,11 @@ export default function PostsPage() {
         isBot={true}
       >
         <MessageAttachment
-          header={{ initials: 'CB', title: 'Chen Brands Inc.', subtitle: 'Premium Support · Account #48821' }}
+          header={{
+            initials: 'CB',
+            title: 'Chen Brands Inc.',
+            subtitle: 'Premium Support · Account #48821',
+          }}
           description={`"We're seeing intermittent 502 errors on the API gateway after upgrading to v4.2.1 last Friday. This is affecting roughly 20% of our automated batch jobs and we need a fix urgently."`}
           fields={[
             { label: 'Priority', value: 'Urgent' },
@@ -558,11 +804,28 @@ export default function PostsPage() {
             { label: 'SLA breach', value: '2 hrs 15 min' },
           ]}
         >
-          <CollapsibleSection title="Account history" badge="12 tickets" defaultOpen={false}>
-            <TimelineItem title="TKT-9201 · 502 errors on API gateway after v4.2.1 upgrade" detail="Mar 26, 2026 · Urgent · Open" />
-            <TimelineItem title="TKT-8821 · Bulk export timeout on large datasets" detail="Mar 15, 2026 · High · Resolved in 4h" />
-            <TimelineItem title="TKT-8604 · Auth token expiring before session timeout" detail="Feb 28, 2026 · Medium · Resolved in 1d" />
-            <TimelineItem title="TKT-8391 · Rate limiting on automated batch operations" detail="Feb 10, 2026 · High · Resolved in 6h" isLast />
+          <CollapsibleSection
+            title="Account history"
+            badge="12 tickets"
+            defaultOpen={false}
+          >
+            <TimelineItem
+              title="TKT-9201 · 502 errors on API gateway after v4.2.1 upgrade"
+              detail="Mar 26, 2026 · Urgent · Open"
+            />
+            <TimelineItem
+              title="TKT-8821 · Bulk export timeout on large datasets"
+              detail="Mar 15, 2026 · High · Resolved in 4h"
+            />
+            <TimelineItem
+              title="TKT-8604 · Auth token expiring before session timeout"
+              detail="Feb 28, 2026 · Medium · Resolved in 1d"
+            />
+            <TimelineItem
+              title="TKT-8391 · Rate limiting on automated batch operations"
+              detail="Feb 10, 2026 · High · Resolved in 6h"
+              isLast
+            />
           </CollapsibleSection>
           <ActionBar
             select={{
@@ -648,7 +911,11 @@ export default function PostsPage() {
         isBot={true}
       >
         <MessageAttachment
-          header={{ initials: 'DC', title: 'Darius Cole', subtitle: 'Product Designer · Design Systems' }}
+          header={{
+            initials: 'DC',
+            title: 'Darius Cole',
+            subtitle: 'Product Designer · Design Systems',
+          }}
           fields={[
             { label: 'Type', value: 'Paid Time Off' },
             { label: 'Start date', value: 'April 14, 2026' },
@@ -663,9 +930,23 @@ export default function PostsPage() {
             { label: 'Deny', variant: 'danger' },
           ]}
         >
-          <CollapsibleSection title="Approval chain" badge="2 steps" defaultOpen={true}>
-            <SequenceItem step={1} title="Manager approval – Leila Haddad" status="active" detail="Pending" />
-            <SequenceItem step={2} title="HR review" status="pending" isLast={true} />
+          <CollapsibleSection
+            title="Approval chain"
+            badge="2 steps"
+            defaultOpen={true}
+          >
+            <SequenceItem
+              step={1}
+              title="Manager approval – Leila Haddad"
+              status="active"
+              detail="Pending"
+            />
+            <SequenceItem
+              step={2}
+              title="HR review"
+              status="pending"
+              isLast={true}
+            />
           </CollapsibleSection>
         </MessageAttachment>
       </Post>
@@ -707,7 +988,11 @@ export default function PostsPage() {
         isBot={true}
       >
         <MessageAttachment
-          header={{ initials: 'DS', title: 'Design System – v3.0', subtitle: 'Project: Platform · Epic' }}
+          header={{
+            initials: 'DS',
+            title: 'Design System – v3.0',
+            subtitle: 'Project: Platform · Epic',
+          }}
           description="Refactor the component library to support multi-brand theming, dark mode, and improved accessibility compliance (WCAG 2.2 AA). Estimated delivery: Q2 2026."
           fields={[
             { label: 'Assignee', value: 'Emma Novak' },
@@ -725,13 +1010,48 @@ export default function PostsPage() {
             { label: 'Assign to me', variant: 'secondary' },
           ]}
         >
-          <CollapsibleSection title="Linked issues" badge="6 issues" defaultOpen={false}>
-            <SequenceItem step={1} title="DS-142 · Token audit trail implementation" detail="Emma Novak · Completed" status="completed" />
-            <SequenceItem step={2} title="DS-143 · Light/dark mode CSS variable mapping" detail="Emma Novak · In progress · PR open" status="active" />
-            <SequenceItem step={3} title="DS-144 · Component accessibility audit (WCAG 2.2 AA)" detail="Darius Cole · In progress" status="active" />
-            <SequenceItem step={4} title="DS-145 · Multi-brand theming configuration API" detail="Ethan Brooks · Not started" status="pending" />
-            <SequenceItem step={5} title="DS-146 · Storybook documentation update" detail="Not assigned · Not started" status="pending" />
-            <SequenceItem step={6} title="DS-147 · Migration guide for existing consumers" detail="Not assigned · Not started" status="pending" isLast />
+          <CollapsibleSection
+            title="Linked issues"
+            badge="6 issues"
+            defaultOpen={false}
+          >
+            <SequenceItem
+              step={1}
+              title="DS-142 · Token audit trail implementation"
+              detail="Emma Novak · Completed"
+              status="completed"
+            />
+            <SequenceItem
+              step={2}
+              title="DS-143 · Light/dark mode CSS variable mapping"
+              detail="Emma Novak · In progress · PR open"
+              status="active"
+            />
+            <SequenceItem
+              step={3}
+              title="DS-144 · Component accessibility audit (WCAG 2.2 AA)"
+              detail="Darius Cole · In progress"
+              status="active"
+            />
+            <SequenceItem
+              step={4}
+              title="DS-145 · Multi-brand theming configuration API"
+              detail="Ethan Brooks · Not started"
+              status="pending"
+            />
+            <SequenceItem
+              step={5}
+              title="DS-146 · Storybook documentation update"
+              detail="Not assigned · Not started"
+              status="pending"
+            />
+            <SequenceItem
+              step={6}
+              title="DS-147 · Migration guide for existing consumers"
+              detail="Not assigned · Not started"
+              status="pending"
+              isLast
+            />
           </CollapsibleSection>
         </MessageAttachment>
       </Post>
@@ -769,12 +1089,20 @@ export default function PostsPage() {
             { label: 'Edit profile', variant: 'secondary' },
           ]}
         >
-          <CollapsibleSection title="Groups assigned" badge="5 groups" defaultOpen={true}>
+          <CollapsibleSection
+            title="Groups assigned"
+            badge="5 groups"
+            defaultOpen={true}
+          >
             <TimelineItem title="All Employees" detail="Auto-assigned" />
             <TimelineItem title="Product Design" detail="Assigned by manager" />
             <TimelineItem title="Figma – All Users" detail="Assigned by IT" />
             <TimelineItem title="Google Workspace" detail="Auto-assigned" />
-            <TimelineItem title="VPN Access" detail="Assigned by IT" isLast={true} />
+            <TimelineItem
+              title="VPN Access"
+              detail="Assigned by IT"
+              isLast={true}
+            />
           </CollapsibleSection>
         </MessageAttachment>
       </Post>
@@ -793,7 +1121,10 @@ export default function PostsPage() {
           fields={[
             { label: 'Requested by', value: 'Marco Rinaldi' },
             { label: 'Application', value: 'Splunk Enterprise' },
-            { label: 'Justification', value: 'Security incident investigation workflow' },
+            {
+              label: 'Justification',
+              value: 'Security incident investigation workflow',
+            },
             { label: 'Submitted', value: 'Today at 3:48 PM' },
           ]}
           fieldColumns={2}
@@ -803,10 +1134,28 @@ export default function PostsPage() {
             { label: 'Request more info', variant: 'secondary' },
           ]}
         >
-          <CollapsibleSection title="Approval chain" badge="3 steps" defaultOpen={true}>
-            <SequenceItem step={1} title="Manager approval" status="completed" />
-            <SequenceItem step={2} title="Security team review" detail="Pending · assigned to Leonard Riley" status="active" />
-            <SequenceItem step={3} title="IT provisioning" status="pending" isLast={true} />
+          <CollapsibleSection
+            title="Approval chain"
+            badge="3 steps"
+            defaultOpen={true}
+          >
+            <SequenceItem
+              step={1}
+              title="Manager approval"
+              status="completed"
+            />
+            <SequenceItem
+              step={2}
+              title="Security team review"
+              detail="Pending · assigned to Leonard Riley"
+              status="active"
+            />
+            <SequenceItem
+              step={3}
+              title="IT provisioning"
+              status="pending"
+              isLast={true}
+            />
           </CollapsibleSection>
         </MessageAttachment>
       </Post>
@@ -833,9 +1182,20 @@ export default function PostsPage() {
             { label: 'Impact', value: 'Multiple users' },
           ]}
         >
-          <CollapsibleSection title="Activity log" badge="2 entries" defaultOpen={false}>
-            <TimelineItem title="Ticket created by Reception" detail="10:16 AM · via self-service portal" />
-            <TimelineItem title="Escalated to IT Support" detail="10:18 AM · auto-escalation" isLast={true} />
+          <CollapsibleSection
+            title="Activity log"
+            badge="2 entries"
+            defaultOpen={false}
+          >
+            <TimelineItem
+              title="Ticket created by Reception"
+              detail="10:16 AM · via self-service portal"
+            />
+            <TimelineItem
+              title="Escalated to IT Support"
+              detail="10:18 AM · auto-escalation"
+              isLast={true}
+            />
           </CollapsibleSection>
           <ActionBar
             select={{
@@ -860,7 +1220,11 @@ export default function PostsPage() {
         isBot={true}
       >
         <MessageAttachment
-          header={{ initials: 'FE', title: 'frontend / design-system', subtitle: 'Pull request #1847 · feat/token-refresh' }}
+          header={{
+            initials: 'FE',
+            title: 'frontend / design-system',
+            subtitle: 'Pull request #1847 · feat/token-refresh',
+          }}
           description="Implements the new semantic token layer for v3.0 design system. Replaces hardcoded hex values across all components with CSS custom properties. Includes migration guide."
           fields={[
             { label: 'Author', value: 'Emma Novak' },
@@ -881,11 +1245,31 @@ export default function PostsPage() {
         >
           <UserList
             users={[
-              { avatarSrc: userLeilaH, name: 'Leila Haddad', role: 'Engineering Manager' },
-              { avatarSrc: userDariusC, name: 'Darius Cole', role: 'Product Designer' },
-              { avatarSrc: userEthanB, name: 'Ethan Brooks', role: 'Backend Engineer' },
-              { avatarSrc: userMarcoR, name: 'Marco Rinaldi', role: 'Security Analyst' },
-              { avatarSrc: userArjunP, name: 'Arjun Patel', role: 'Platform Administrator' },
+              {
+                avatarSrc: userLeilaH,
+                name: 'Leila Haddad',
+                role: 'Engineering Manager',
+              },
+              {
+                avatarSrc: userDariusC,
+                name: 'Darius Cole',
+                role: 'Product Designer',
+              },
+              {
+                avatarSrc: userEthanB,
+                name: 'Ethan Brooks',
+                role: 'Backend Engineer',
+              },
+              {
+                avatarSrc: userMarcoR,
+                name: 'Marco Rinaldi',
+                role: 'Security Analyst',
+              },
+              {
+                avatarSrc: userArjunP,
+                name: 'Arjun Patel',
+                role: 'Platform Administrator',
+              },
             ]}
           />
         </MessageAttachment>
@@ -910,11 +1294,36 @@ export default function PostsPage() {
             },
           ]}
         >
-          <CollapsibleSection title="Issue status" badge="8 issues" defaultOpen={true}>
-            <SequenceItem step={1} title="Token refresh endpoint — Ethan Brooks" detail="Completed yesterday" status="completed" />
-            <SequenceItem step={2} title="Design system token migration — Emma Novak" detail="In progress · PR open" status="active" />
-            <SequenceItem step={3} title="CI pipeline cache optimisation — Lukas Meyer" detail="In progress · blocked on infra access" status="active" />
-            <SequenceItem step={4} title="API rate limiting — Danielle Okoro" detail="Pending · starts tomorrow" status="pending" isLast={true} />
+          <CollapsibleSection
+            title="Issue status"
+            badge="8 issues"
+            defaultOpen={true}
+          >
+            <SequenceItem
+              step={1}
+              title="Token refresh endpoint — Ethan Brooks"
+              detail="Completed yesterday"
+              status="completed"
+            />
+            <SequenceItem
+              step={2}
+              title="Design system token migration — Emma Novak"
+              detail="In progress · PR open"
+              status="active"
+            />
+            <SequenceItem
+              step={3}
+              title="CI pipeline cache optimisation — Lukas Meyer"
+              detail="In progress · blocked on infra access"
+              status="active"
+            />
+            <SequenceItem
+              step={4}
+              title="API rate limiting — Danielle Okoro"
+              detail="Pending · starts tomorrow"
+              status="pending"
+              isLast={true}
+            />
           </CollapsibleSection>
         </MessageAttachment>
       </Post>
@@ -937,10 +1346,18 @@ export default function PostsPage() {
           ]}
           fields={[
             { label: 'Target account', value: 'leonard.riley@company.com' },
-            { label: 'Source IPs', value: '185.220.x.x · 91.108.x.x · 198.44.x.x' },
+            {
+              label: 'Source IPs',
+              value: '185.220.x.x · 91.108.x.x · 198.44.x.x',
+            },
             { label: 'Location', value: 'Russia · Netherlands · Brazil' },
             { label: 'Time window', value: '7:01 AM – 7:13 AM' },
-            { label: 'Recommended action', value: 'Immediately suspend affected accounts and rotate credentials. Block identified IP ranges at the firewall level. Initiate incident review with the security team.', colSpan: 2 },
+            {
+              label: 'Recommended action',
+              value:
+                'Immediately suspend affected accounts and rotate credentials. Block identified IP ranges at the firewall level. Initiate incident review with the security team.',
+              colSpan: 2,
+            },
           ]}
           fieldColumns={2}
           actions={[
@@ -964,7 +1381,11 @@ export default function PostsPage() {
         isBot={true}
       >
         <MessageAttachment
-          header={{ initials: 'TW', title: 'Taylor Westbrook', subtitle: 'Senior Frontend Engineer · Engineering' }}
+          header={{
+            initials: 'TW',
+            title: 'Taylor Westbrook',
+            subtitle: 'Senior Frontend Engineer · Engineering',
+          }}
           fields={[
             { label: 'Stage', value: 'Technical interview' },
             { label: 'Applied', value: 'March 24, 2026' },
@@ -983,9 +1404,20 @@ export default function PostsPage() {
             { label: 'Schedule next interview', variant: 'secondary' },
           ]}
         >
-          <CollapsibleSection title="Interview scorecard" badge="2 submitted" defaultOpen={false}>
-            <TimelineItem title="Leila Haddad · Engineering Manager · Strong Yes" detail="Exceptional systems thinking and clear communication. Would thrive in a cross-functional role." />
-            <TimelineItem title="Ethan Brooks · Backend Engineer · Yes" detail="Solid frontend fundamentals, good grasp of performance trade-offs. Minor gaps in TypeScript generics." isLast />
+          <CollapsibleSection
+            title="Interview scorecard"
+            badge="2 submitted"
+            defaultOpen={false}
+          >
+            <TimelineItem
+              title="Leila Haddad · Engineering Manager · Strong Yes"
+              detail="Exceptional systems thinking and clear communication. Would thrive in a cross-functional role."
+            />
+            <TimelineItem
+              title="Ethan Brooks · Backend Engineer · Yes"
+              detail="Solid frontend fundamentals, good grasp of performance trade-offs. Minor gaps in TypeScript generics."
+              isLast
+            />
           </CollapsibleSection>
         </MessageAttachment>
       </Post>
@@ -1038,7 +1470,10 @@ export default function PostsPage() {
         isBot={true}
       >
         <MessageAttachment title="Trigger a manual incident">
-          <TextInput label="Incident title" placeholder="Brief description of the issue" />
+          <TextInput
+            label="Incident title"
+            placeholder="Brief description of the issue"
+          />
           <Select
             label="Affected service"
             placeholder="Select a service"
@@ -1050,17 +1485,30 @@ export default function PostsPage() {
             ]}
           />
           <div>
-            <p style={{ fontSize: 12, fontWeight: 600, color: 'var(--center-channel-color)', marginBottom: 8 }}>Urgency</p>
+            <p
+              style={{
+                fontSize: 12,
+                fontWeight: 600,
+                color: 'var(--center-channel-color)',
+                marginBottom: 8,
+              }}
+            >
+              Urgency
+            </p>
             <div style={{ display: 'flex', gap: 16 }}>
-              <Radio name="incident-urgency" defaultChecked>High</Radio>
+              <Radio name="incident-urgency" defaultChecked>
+                High
+              </Radio>
               <Radio name="incident-urgency">Low</Radio>
             </div>
           </div>
           <Divider />
-          <ActionBar actions={[
-            { label: 'Trigger incident', variant: 'danger' },
-            { label: 'Cancel', variant: 'secondary' },
-          ]} />
+          <ActionBar
+            actions={[
+              { label: 'Trigger incident', variant: 'danger' },
+              { label: 'Cancel', variant: 'secondary' },
+            ]}
+          />
         </MessageAttachment>
       </Post>
 
@@ -1083,7 +1531,9 @@ export default function PostsPage() {
               { value: 'growth', label: 'Growth' },
             ]}
           />
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+          <div
+            style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}
+          >
             <Select
               label="Issue type"
               placeholder="Select type"
@@ -1118,10 +1568,12 @@ export default function PostsPage() {
           />
           <Checkbox>Notify assignee by email</Checkbox>
           <Divider />
-          <ActionBar actions={[
-            { label: 'Create issue', variant: 'primary' },
-            { label: 'Cancel', variant: 'secondary' },
-          ]} />
+          <ActionBar
+            actions={[
+              { label: 'Create issue', variant: 'primary' },
+              { label: 'Cancel', variant: 'secondary' },
+            ]}
+          />
         </MessageAttachment>
       </Post>
 
@@ -1134,8 +1586,13 @@ export default function PostsPage() {
         isBot={true}
       >
         <MessageAttachment title="Submit an expense">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
-            <TextInput label="Merchant" placeholder="e.g. Marriott San Francisco" />
+          <div
+            style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}
+          >
+            <TextInput
+              label="Merchant"
+              placeholder="e.g. Marriott San Francisco"
+            />
             <TextInput label="Amount (USD)" placeholder="0.00" />
           </div>
           <Select
@@ -1149,15 +1606,19 @@ export default function PostsPage() {
               { value: 'other', label: 'Other' },
             ]}
           />
-          <TextInput label="Notes" placeholder="Optional description or context" />
+          <TextInput
+            label="Notes"
+            placeholder="Optional description or context"
+          />
           <Divider />
-          <ActionBar actions={[
-            { label: 'Submit expense', variant: 'primary' },
-            { label: 'Save draft', variant: 'secondary' },
-          ]} />
+          <ActionBar
+            actions={[
+              { label: 'Submit expense', variant: 'primary' },
+              { label: 'Save draft', variant: 'secondary' },
+            ]}
+          />
         </MessageAttachment>
       </Post>
-
     </div>
   );
 }

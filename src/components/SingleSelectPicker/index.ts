@@ -1,2 +1,2 @@
-export { default } from './SingleSelectPicker'
-export type { SingleSelectPickerProps } from './SingleSelectPicker'
+export { default } from './SingleSelectPicker';
+export type { SingleSelectPickerProps } from './SingleSelectPicker';

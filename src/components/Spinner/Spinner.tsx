@@ -1,15 +1,18 @@
-import type { HTMLAttributes } from 'react'
-import styles from './Spinner.module.scss'
+import type { HTMLAttributes } from 'react';
+import styles from './Spinner.module.scss';
 
-export type SpinnerSize = 10 | 12 | 16 | 20 | 24 | 28 | 32
+export type SpinnerSize = 10 | 12 | 16 | 20 | 24 | 28 | 32;
 
-export interface SpinnerProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'role'> {
+export interface SpinnerProps extends Omit<
+  HTMLAttributes<HTMLSpanElement>,
+  'role'
+> {
   /** Size of the spinner in pixels. Figma design system values. Default: 16. */
-  size?: SpinnerSize
+  size?: SpinnerSize;
   /** Use inverted colors for dark/filled backgrounds (e.g. inside a primary button). */
-  inverted?: boolean
+  inverted?: boolean;
   /** Accessible label for screen readers. Default: "Loading". */
-  'aria-label'?: string
+  'aria-label'?: string;
 }
 
 /**
@@ -27,7 +30,7 @@ export default function Spinner({
   style,
   ...htmlProps
 }: SpinnerProps) {
-  const strokeWidth = Math.max(1, Math.min(3, Math.round(size * 0.1)))
+  const strokeWidth = Math.max(1, Math.min(3, Math.round(size * 0.1)));
 
   const rootClass = [
     styles.spinner,
@@ -35,7 +38,7 @@ export default function Spinner({
     className,
   ]
     .filter(Boolean)
-    .join(' ')
+    .join(' ');
 
   return (
     <span
@@ -50,5 +53,5 @@ export default function Spinner({
       }}
       {...htmlProps}
     />
-  )
+  );
 }

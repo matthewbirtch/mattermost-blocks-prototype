@@ -1,4 +1,4 @@
-import LabelTag from '../LabelTag/LabelTag';
+import LabelTag from '@/components/LabelTag';
 import styles from './MessageHeader.module.scss';
 
 type MessageHeaderProps = {

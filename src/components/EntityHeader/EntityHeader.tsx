@@ -12,7 +12,12 @@ type EntityHeaderProps = {
   chip?: Chip;
 };
 
-export default function EntityHeader({ initials, title, subtitle, chip }: EntityHeaderProps) {
+export default function EntityHeader({
+  initials,
+  title,
+  subtitle,
+  chip,
+}: EntityHeaderProps) {
   return (
     <div className={styles.entityHeader}>
       {initials && <div className={styles.entityInitials}>{initials}</div>}
@@ -21,12 +26,16 @@ export default function EntityHeader({ initials, title, subtitle, chip }: Entity
         {subtitle && <p className={styles.entitySubtitle}>{subtitle}</p>}
       </div>
       {chip && (
-        <div className={[
-          styles.entityChip,
-          chip.variant === 'success' ? styles.entityChipSuccess : '',
-          chip.variant === 'danger' ? styles.entityChipDanger : '',
-          chip.variant === 'warning' ? styles.entityChipWarning : '',
-        ].filter(Boolean).join(' ')}>
+        <div
+          className={[
+            styles.entityChip,
+            chip.variant === 'success' ? styles.entityChipSuccess : '',
+            chip.variant === 'danger' ? styles.entityChipDanger : '',
+            chip.variant === 'warning' ? styles.entityChipWarning : '',
+          ]
+            .filter(Boolean)
+            .join(' ')}
+        >
           {chip.label}
         </div>
       )}

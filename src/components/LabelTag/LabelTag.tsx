@@ -5,9 +5,5 @@ type LabelTagProps = {
 };
 
 export default function LabelTag({ label }: LabelTagProps) {
-  return (
-    <span className={styles.tag}>
-      {label}
-    </span>
-  );
+  return <span className={styles.tag}>{label}</span>;
 }
