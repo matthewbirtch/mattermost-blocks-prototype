@@ -56,5 +56,16 @@
 
   &.entityChipSuccess {
     background-color: rgba(51, 153, 112, 0.08);
+    color: rgba(51, 153, 112, 1);
+  }
+
+  &.entityChipDanger {
+    background-color: rgba(210, 75, 78, 0.10);
+    color: rgba(210, 75, 78, 1);
+  }
+
+  &.entityChipWarning {
+    background-color: rgba(188, 126, 33, 0.10);
+    color: rgba(188, 126, 33, 1);
   }
 }

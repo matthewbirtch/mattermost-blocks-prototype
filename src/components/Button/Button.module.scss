@@ -34,6 +34,32 @@
   align-items: center;
 }
 
+.spinner {
+  display: inline-flex;
+  align-items: center;
+}
+
+.button:disabled {
+  background-color: rgba(var(--center-channel-color-rgb), 0.08);
+  color: rgba(var(--center-channel-color-rgb), 0.32);
+
+  &:hover {
+    background-color: rgba(var(--center-channel-color-rgb), 0.08);
+  }
+}
+
+.button:disabled .spinner {
+  opacity: 0.64;
+}
+
+.loading {
+  cursor: wait;
+}
+
+.button:disabled:not(.loading) {
+  cursor: not-allowed;
+}
+
 .secondary {
   background-color: rgba(var(--button-bg-rgb), 0.08);
   color: var(--link-color);

@@ -9,6 +9,7 @@ type PostProps = {
   username: string;
   timestamp: string;
   isBot?: boolean;
+  botLabel?: string;
   children: React.ReactNode;
 };
 
@@ -18,6 +19,7 @@ export default function Post({
   username,
   timestamp,
   isBot = false,
+  botLabel,
   children,
 }: PostProps) {
   return (
@@ -27,7 +29,12 @@ export default function Post({
           <UserAvatar src={avatarSrc} alt={avatarAlt} size="32" />
         </div>
         <div className={styles.content}>
-          <MessageHeader username={username} timestamp={timestamp} isBot={isBot} />
+          <MessageHeader
+            username={username}
+            timestamp={timestamp}
+            isBot={isBot}
+            botLabel={botLabel}
+          />
           <div className={styles.body}>{children}</div>
         </div>
       </div>

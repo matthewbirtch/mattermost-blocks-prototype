@@ -29,8 +29,11 @@
   --sidebar-text-active-border: var(--color-blue-300);
   --sidebar-text-active-border-rgb: var(--color-blue-300-rgb);
   --sidebar-text-active-color: var(--color-neutral-0);
+  --sidebar-text-active-color-rgb: var(--color-neutral-0-rgb);
   --sidebar-unread-text: var(--color-neutral-0);
+  --sidebar-unread-text-rgb: var(--color-neutral-0-rgb);
   --sidebar-header-text-color: var(--color-neutral-0);
+  --sidebar-header-text-color-rgb: var(--color-neutral-0-rgb);
 
   // Center channel
   --center-channel-bg: var(--color-neutral-0);
@@ -42,6 +45,7 @@
   --button-bg: var(--color-blue-500);
   --button-bg-rgb: var(--color-blue-500-rgb);
   --button-color: var(--color-neutral-0);
+  --button-color-rgb: var(--color-neutral-0-rgb);
 
   // Interactions
   --link-color: var(--color-blue-600);
@@ -53,14 +57,19 @@
   --mention-color: var(--color-indigo-500);
   --mention-color-rgb: var(--color-indigo-500-rgb);
   --mention-highlight-bg: var(--color-yellow-200);
+  --mention-highlight-bg-rgb: var(--color-yellow-200-rgb);
   --mention-highlight-link: var(--color-neutral-1100);
+  --mention-highlight-link-rgb: var(--color-neutral-1100-rgb);
   --new-message-separator: var(--color-yellow-600);
+  --new-message-separator-rgb: var(--color-yellow-600-rgb);
 
   // Status
   --online-indicator: var(--color-green-500);
   --online-indicator-rgb: var(--color-green-500-rgb);
   --away-indicator: var(--color-yellow-500);
+  --away-indicator-rgb: var(--color-yellow-500-rgb);
   --dnd-indicator: var(--color-red-400);
+  --dnd-indicator-rgb: var(--color-red-400-rgb);
 
   // Misc
   --calls-bg: var(--color-indigo-600);
@@ -85,8 +94,11 @@
   --sidebar-text-active-border: var(--color-cyan-300);
   --sidebar-text-active-border-rgb: var(--color-cyan-300-rgb);
   --sidebar-text-active-color: var(--color-neutral-0);
+  --sidebar-text-active-color-rgb: var(--color-neutral-0-rgb);
   --sidebar-unread-text: var(--color-neutral-0);
+  --sidebar-unread-text-rgb: var(--color-neutral-0-rgb);
   --sidebar-header-text-color: var(--color-neutral-0);
+  --sidebar-header-text-color-rgb: var(--color-neutral-0-rgb);
 
   // Center channel
   --center-channel-bg: var(--color-neutral-0);
@@ -98,6 +110,7 @@
   --button-bg: var(--color-blue-500);
   --button-bg-rgb: var(--color-blue-500-rgb);
   --button-color: var(--color-neutral-0);
+  --button-color-rgb: var(--color-neutral-0-rgb);
 
   // Interactions
   --link-color: var(--color-blue-600);
@@ -109,14 +122,19 @@
   --mention-color: #1543a3;
   --mention-color-rgb: 21, 67, 163;
   --mention-highlight-bg: var(--color-teal-200);
+  --mention-highlight-bg-rgb: var(--color-teal-200-rgb);
   --mention-highlight-link: var(--color-teal-800);
+  --mention-highlight-link-rgb: var(--color-teal-800-rgb);
   --new-message-separator: var(--color-yellow-400);
+  --new-message-separator-rgb: var(--color-yellow-400-rgb);
 
   // Status
   --online-indicator: var(--color-green-500);
   --online-indicator-rgb: var(--color-green-500-rgb);
   --away-indicator: var(--color-yellow-500);
+  --away-indicator-rgb: var(--color-yellow-500-rgb);
   --dnd-indicator: var(--color-red-400);
+  --dnd-indicator-rgb: var(--color-red-400-rgb);
 
   // Misc
   --calls-bg: #091d48;
@@ -141,8 +159,11 @@
   --sidebar-text-active-border: var(--color-cyan-500);
   --sidebar-text-active-border-rgb: var(--color-cyan-500-rgb);
   --sidebar-text-active-color: var(--color-neutral-1100);
+  --sidebar-text-active-color-rgb: var(--color-neutral-1100-rgb);
   --sidebar-unread-text: var(--color-neutral-1100);
+  --sidebar-unread-text-rgb: var(--color-neutral-1100-rgb);
   --sidebar-header-text-color: var(--color-neutral-1100);
+  --sidebar-header-text-color-rgb: var(--color-neutral-1100-rgb);
 
   // Center channel
   --center-channel-bg: var(--color-neutral-0);
@@ -154,6 +175,7 @@
   --button-bg: var(--color-blue-500);
   --button-bg-rgb: var(--color-blue-500-rgb);
   --button-color: var(--color-neutral-0);
+  --button-color-rgb: var(--color-neutral-0-rgb);
 
   // Interactions
   --link-color: var(--color-blue-600);
@@ -165,14 +187,19 @@
   --mention-color: var(--color-neutral-0);
   --mention-color-rgb: var(--color-neutral-0-rgb);
   --mention-highlight-bg: var(--color-teal-200);
+  --mention-highlight-bg-rgb: var(--color-teal-200-rgb);
   --mention-highlight-link: var(--color-teal-800);
+  --mention-highlight-link-rgb: var(--color-teal-800-rgb);
   --new-message-separator: var(--color-teal-600);
+  --new-message-separator-rgb: var(--color-teal-600-rgb);
 
   // Status
   --online-indicator: var(--color-green-500);
   --online-indicator-rgb: var(--color-green-500-rgb);
   --away-indicator: var(--color-yellow-500);
+  --away-indicator-rgb: var(--color-yellow-500-rgb);
   --dnd-indicator: var(--color-red-400);
+  --dnd-indicator-rgb: var(--color-red-400-rgb);
 
   // Misc
   --calls-bg: var(--color-neutral-1050);
@@ -197,8 +224,11 @@
   --sidebar-text-active-border: #4a7ce8;
   --sidebar-text-active-border-rgb: 74, 124, 232;
   --sidebar-text-active-color: var(--color-neutral-0);
+  --sidebar-text-active-color-rgb: var(--color-neutral-0-rgb);
   --sidebar-unread-text: var(--color-neutral-0);
+  --sidebar-unread-text-rgb: var(--color-neutral-0-rgb);
   --sidebar-header-text-color: var(--color-neutral-0);
+  --sidebar-header-text-color-rgb: var(--color-neutral-0-rgb);
 
   // Center channel
   --center-channel-bg: #111827;
@@ -210,6 +240,7 @@
   --button-bg: #4a7ce8;
   --button-bg-rgb: 74, 124, 232;
   --button-color: var(--color-neutral-0);
+  --button-color-rgb: var(--color-neutral-0-rgb);
 
   // Interactions
   --link-color: var(--color-blue-300);
@@ -221,14 +252,19 @@
   --mention-color: var(--color-neutral-0);
   --mention-color-rgb: var(--color-neutral-0-rgb);
   --mention-highlight-bg: var(--color-blue-700);
+  --mention-highlight-bg-rgb: var(--color-blue-700-rgb);
   --mention-highlight-link: var(--color-teal-100);
+  --mention-highlight-link-rgb: var(--color-teal-100-rgb);
   --new-message-separator: var(--color-yellow-400);
+  --new-message-separator-rgb: var(--color-yellow-400-rgb);
 
   // Status
   --online-indicator: var(--color-green-500);
   --online-indicator-rgb: var(--color-green-500-rgb);
   --away-indicator: var(--color-yellow-500);
+  --away-indicator-rgb: var(--color-yellow-500-rgb);
   --dnd-indicator: var(--color-red-400);
+  --dnd-indicator-rgb: var(--color-red-400-rgb);
 
   // Misc
   --calls-bg: #222c3f;
@@ -253,8 +289,11 @@
   --sidebar-text-active-border: #4a7ce8;
   --sidebar-text-active-border-rgb: 74, 124, 232;
   --sidebar-text-active-color: var(--color-neutral-0);
+  --sidebar-text-active-color-rgb: var(--color-neutral-0-rgb);
   --sidebar-unread-text: var(--color-neutral-0);
+  --sidebar-unread-text-rgb: var(--color-neutral-0-rgb);
   --sidebar-header-text-color: var(--color-neutral-0);
+  --sidebar-header-text-color-rgb: var(--color-neutral-0-rgb);
 
   // Center channel
   --center-channel-bg: #191b1f;
@@ -266,6 +305,7 @@
   --button-bg: #4a7ce8;
   --button-bg-rgb: 74, 124, 232;
   --button-color: var(--color-neutral-0);
+  --button-color-rgb: var(--color-neutral-0-rgb);
 
   // Interactions
   --link-color: var(--color-blue-300);
@@ -277,14 +317,19 @@
   --mention-color: var(--color-neutral-0);
   --mention-color-rgb: var(--color-neutral-0-rgb);
   --mention-highlight-bg: var(--color-teal-800);
+  --mention-highlight-bg-rgb: var(--color-teal-800-rgb);
   --mention-highlight-link: var(--color-teal-100);
+  --mention-highlight-link-rgb: var(--color-teal-100-rgb);
   --new-message-separator: var(--color-yellow-400);
+  --new-message-separator-rgb: var(--color-yellow-400-rgb);
 
   // Status
   --online-indicator: var(--color-green-500);
   --online-indicator-rgb: var(--color-green-500-rgb);
   --away-indicator: var(--color-yellow-500);
+  --away-indicator-rgb: var(--color-yellow-500-rgb);
   --dnd-indicator: var(--color-red-400);
+  --dnd-indicator-rgb: var(--color-red-400-rgb);
 
   // Misc
   --calls-bg: #24262d;

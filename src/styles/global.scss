@@ -67,3 +67,28 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+// ---------------------------------------------------------------------------
+// Playground page shell — shared layout for route-level pages
+// ---------------------------------------------------------------------------
+.page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.pageHeading {
+  font-family: 'Metropolis', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  color: var(--center-channel-color);
+  margin: 0 0 8px;
+}
+
+.pageHeading--flush {
+  margin-bottom: 0;
+}

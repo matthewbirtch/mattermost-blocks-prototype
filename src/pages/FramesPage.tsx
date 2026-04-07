@@ -16,7 +16,6 @@ import CollapsibleSection from '../components/CollapsibleSection/CollapsibleSect
 import TimelineItem from '../components/TimelineItem/TimelineItem';
 import SequenceItem from '../components/SequenceItem/SequenceItem';
 import BackButton from '../nav/BackButton';
-import styles from './FramesPage.module.scss';
 
 const timelineEvents = [
   { title: 'Incident triggered', detail: '11:04 AM PST • Datadog alert' },
@@ -44,9 +43,9 @@ const approvalChain = [
 
 export default function FramesPage() {
   return (
-    <div className={styles.page}>
+    <div className="page">
       <BackButton />
-      <h1 className={styles.heading}>Post Samples</h1>
+      <h1 className="pageHeading">Post Samples</h1>
 
       {/* Frame 1 — PagerDuty incident */}
       <Post

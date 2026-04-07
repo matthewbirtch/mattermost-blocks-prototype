@@ -6,10 +6,10 @@ import EntityHeader from '../EntityHeader/EntityHeader';
 import styles from './MessageAttachment.module.scss';
 
 type EntityHeaderProps = {
-  initials: string;
+  initials?: string;
   title: string;
   subtitle?: string;
-  chip?: { label: string; variant?: 'success' };
+  chip?: { label: string; variant?: 'success' | 'danger' | 'warning' };
 };
 
 type KeyValueField = {

@@ -1,6 +1,10 @@
+import { useState } from 'react';
 import OpenInNewIcon from '@mattermost/compass-icons/components/open-in-new';
 import Button from '../components/Button/Button';
 import Checkbox from '../components/Checkbox/Checkbox';
+import SingleSelectPicker from '../components/SingleSelectPicker/SingleSelectPicker';
+import MultiSelectPicker from '../components/MultiSelectPicker/MultiSelectPicker';
+import Spinner from '../components/Spinner/Spinner';
 import Radio from '../components/Radio/Radio';
 import Switch from '../components/Switch/Switch';
 import TextInput from '../components/TextInput/TextInput';
@@ -66,10 +70,13 @@ const demoUsers = [
 ];
 
 export default function ComponentsPage() {
+  const [selectedBasic, setSelectedBasic] = useState<number | null>(null);
+  const [selectedDesc, setSelectedDesc] = useState<number | null>(null);
+
   return (
-    <div className={styles.page}>
+    <div className="page">
       <BackButton />
-      <h1 className={styles.heading}>Components</h1>
+      <h1 className="pageHeading pageHeading--flush">Components</h1>
 
       {/* Button */}
       <Section title="Button">
@@ -92,6 +99,30 @@ export default function ComponentsPage() {
         <Row label="Danger">
           <Button variant="danger">Deny</Button>
           <Button variant="danger">Delete</Button>
+        </Row>
+        <Row label="Loading">
+          <Button variant="primary" loading>Saving</Button>
+          <Button variant="danger" loading>Deleting</Button>
+        </Row>
+      </Section>
+
+      {/* Spinner */}
+      <Section title="Spinner">
+        <Row label="Sizes">
+          <Spinner size={10} />
+          <Spinner size={12} />
+          <Spinner size={16} />
+          <Spinner size={20} />
+          <Spinner size={24} />
+          <Spinner size={28} />
+          <Spinner size={32} />
+        </Row>
+        <Row label="Inverted">
+          <div style={{ display: 'flex', gap: 16, alignItems: 'center', background: 'var(--button-bg)', padding: '8px 12px', borderRadius: 4 }}>
+            <Spinner size={16} inverted />
+            <Spinner size={20} inverted />
+            <Spinner size={24} inverted />
+          </div>
         </Row>
       </Section>
 
@@ -316,6 +347,40 @@ export default function ComponentsPage() {
         <Row label="Default" align="start">
           <div style={{ width: '100%' }}>
             <Divider />
+          </div>
+        </Row>
+      </Section>
+
+      {/* Single Select Picker */}
+      <Section title="Single Select Picker">
+        <Row label="List" align="start">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 4, width: '100%' }}>
+            <SingleSelectPicker index={1} label="UX Design" selected={selectedBasic === 1} onClick={() => setSelectedBasic(1)} />
+            <SingleSelectPicker index={2} label="Engineering" selected={selectedBasic === 2} onClick={() => setSelectedBasic(2)} />
+            <SingleSelectPicker index={3} label="Product Management" selected={selectedBasic === 3} onClick={() => setSelectedBasic(3)} border={false} />
+          </div>
+        </Row>
+        <Row label="With description" align="start">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 4, width: '100%' }}>
+            <SingleSelectPicker index={1} label="UX Design" description="Figma, Figjam, and design tools" selected={selectedDesc === 1} onClick={() => setSelectedDesc(1)} />
+            <SingleSelectPicker index={2} label="Engineering" description="Frontend, backend, and platform" selected={selectedDesc === 2} onClick={() => setSelectedDesc(2)} border={false} />
+          </div>
+        </Row>
+      </Section>
+
+      {/* Multi Select Picker */}
+      <Section title="Multi Select Picker">
+        <Row label="List" align="start">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 4, width: '100%' }}>
+            <MultiSelectPicker label="UX Design" />
+            <MultiSelectPicker label="Engineering" />
+            <MultiSelectPicker label="Product Management" border={false} />
+          </div>
+        </Row>
+        <Row label="With description" align="start">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 4, width: '100%' }}>
+            <MultiSelectPicker label="UX Design" description="Figma, Figjam, and design tools" />
+            <MultiSelectPicker label="Engineering" description="Frontend, backend, and platform" defaultChecked border={false} />
           </div>
         </Row>
       </Section>

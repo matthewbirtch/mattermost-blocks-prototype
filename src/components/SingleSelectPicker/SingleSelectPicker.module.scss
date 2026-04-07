@@ -1,0 +1,100 @@
+.single-select-picker {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 10px;
+  border-radius: var(--radius-s);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 150ms ease;
+  outline: none;
+
+  &:hover {
+    background-color: rgba(var(--center-channel-color-rgb), 0.04);
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px rgba(var(--button-bg-rgb), 0.56);
+  }
+
+  // Active / selected state
+  &--selected {
+    background-color: rgba(var(--button-bg-rgb), 0.08);
+
+    &:hover {
+      background-color: rgba(var(--button-bg-rgb), 0.08);
+    }
+  }
+
+  // Numbered badge
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-s);
+    background-color: rgba(var(--center-channel-color-rgb), 0.08);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-100);
+    font-weight: 600;
+    line-height: var(--line-height-100);
+    color: rgba(var(--center-channel-color-rgb), 0.75);
+    transition:
+      background-color 150ms ease,
+      color 150ms ease;
+
+    .single-select-picker--selected & {
+      background-color: var(--button-bg);
+      color: var(--button-color, white);
+    }
+  }
+
+  // Text content area
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    min-width: 0;
+    padding: 2px 0;
+  }
+
+  &__label {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-100);
+    font-weight: 400;
+    line-height: var(--line-height-100);
+    color: var(--center-channel-color);
+  }
+
+  &__description {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-75);
+    font-weight: 400;
+    line-height: var(--line-height-75);
+    color: rgba(var(--center-channel-color-rgb), 0.75);
+  }
+
+  // Bottom separator — only shown in default (unselected) state
+  &__separator {
+    position: absolute;
+    bottom: -2px;
+    left: 10px;
+    right: 10px;
+    height: 1px;
+    background-color: rgba(var(--center-channel-color-rgb), 0.08);
+  }
+
+  // Hide separator on hover (background makes the line visually redundant)
+  &:hover &__separator {
+    opacity: 0;
+  }
+
+  // Hide separator when the next sibling is selected
+  &:has(+ #{&}--selected) &__separator {
+    opacity: 0;
+  }
+}

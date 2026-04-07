@@ -2,11 +2,11 @@ import styles from './EntityHeader.module.scss';
 
 type Chip = {
   label: string;
-  variant?: 'success';
+  variant?: 'success' | 'danger' | 'warning';
 };
 
 type EntityHeaderProps = {
-  initials: string;
+  initials?: string;
   title: string;
   subtitle?: string;
   chip?: Chip;
@@ -15,13 +15,18 @@ type EntityHeaderProps = {
 export default function EntityHeader({ initials, title, subtitle, chip }: EntityHeaderProps) {
   return (
     <div className={styles.entityHeader}>
-      <div className={styles.entityInitials}>{initials}</div>
+      {initials && <div className={styles.entityInitials}>{initials}</div>}
       <div className={styles.entityText}>
         <h2 className={styles.title}>{title}</h2>
         {subtitle && <p className={styles.entitySubtitle}>{subtitle}</p>}
       </div>
       {chip && (
-        <div className={`${styles.entityChip} ${chip.variant === 'success' ? styles.entityChipSuccess : ''}`}>
+        <div className={[
+          styles.entityChip,
+          chip.variant === 'success' ? styles.entityChipSuccess : '',
+          chip.variant === 'danger' ? styles.entityChipDanger : '',
+          chip.variant === 'warning' ? styles.entityChipWarning : '',
+        ].filter(Boolean).join(' ')}>
           {chip.label}
         </div>
       )}
